@@ -2,9 +2,147 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>Title</title>
+    <title>主页-左边</title>
+    <link rel="stylesheet" href="../common/com.css">
+    <style>
+        body{background: #000;width: 900px;}
+        .title{font-size:72px;font-family:SourceHanSansCN-Regular;color:rgba(255,255,255,1);
+            display: flex;align-items: center;letter-spacing: 10px;}
+        .title_box{width:20px;height:80px;background:rgba(255,255,255,1);opacity:0.2;margin-right: 10px;}
+        .tip{font-size:24px;color:rgba(255,255,255,0.6);display: flex;align-items: center;margin-top: 22px;}
+        .tip img{margin-right: 16px;}
+
+        .survey{width: 880px;display: flex;flex-wrap:wrap;margin-top: 65px; }
+        .survey_item{display: flex;justify-content: space-between;width: 400px;margin-right: 40px}
+        .survey_item_left{display: flex;align-items: center;padding-top: 20px;}
+        .survey_block{width: 12px;height: 8px;background:rgba(255,255,255,0.3);margin-right: 5px;}
+        .survey_name{font-size:24px;color:rgba(255,255,255,0.6);}
+        .survey_num{font-size:48px;color: rgba(20, 130, 255, 0.6)}
+        .survey_num span{font-size:24px;color: rgba(20, 130, 255, 0.6);padding-left: 5px}
+
+        .chart_info{width:840px;display: flex;justify-content: space-between;margin-top: 40px;}
+        .chart_info_item{width:400px;height:80px;border:2px solid rgba(255,255,255,0.2);
+            display: flex;align-items: center}
+        .chart_info_img{padding:0 30px;}
+        .chart_info_name{font-size:24px;color:rgba(255,255,255,0.7);margin-right: 50px;}
+        .chart_info_num{font-size:36px;color:rgba(255,255,255,1);}
+        .chart_info_num span{font-size:18px;color:rgba(255,255,255,0.6);padding: 0 14px 0 7px;}
+
+
+        .video{margin-top: 53px;}
+        .video_title img{margin-right: 20px;}
+        .video_title{font-size:36px;letter-spacing: 10px;color:rgba(255,255,255,1);display: flex;align-items: center;}
+        .video_list{height: 600px;overflow: auto;margin-top: 53px;display: flex;flex-wrap: wrap;padding-left: 30px;}
+        .video_item{width: 420px;}
+        .video_item_title{font-size:18px;color:rgba(255,255,255,0.6);display: flex;align-items: center}
+        .video_item_block{width:12px;height:6px;background:rgba(60,250,120,1);margin-right: 8px;}
+        .video_item_cont{background: url("../image/index_left/video_bg.png") no-repeat;width: 380px;height: 240px}
+        .video_item_cont video{margin-top: 20px;margin-left: 10px;}
+
+        /*滚动条样式*/
+        .video_list::-webkit-scrollbar{width: 2px;height: 240px;position: absolute;}
+        .video_list::-webkit-scrollbar-track-piece {background:rgba(255,255,255,0.2);}
+        .video_list::-webkit-scrollbar-thumb {background:rgba(255,255,255,0.4);}
+    </style>
 </head>
 <body>
+    <div class="index">
+        <div class="title"><div class="title_box"></div>宏发上域花园</div>
+        <div class="tip"><img width="20" height="24" src="../image/index_left/icon_loc.png" class="tip_box">光明新区公明街道民生路与华发路交汇处西南角（宏发雍景城旁）</div>
+        <div class="survey">
+            <div class="survey_item">
+                <div class="survey_item_left">
+                    <div class="survey_block"></div><div class="survey_name">占地面积</div>
+                </div>
+                <div class="survey_num">49246<span>m<sup>2</sup></span></div>
+            </div>
+            <div class="survey_item">
+                <div class="survey_item_left">
+                    <div class="survey_block"></div><div class="survey_name">楼栋数量
+                </div>
+                </div>
+                <div class="survey_num">17<span>栋</span></div>
+            </div>
+            <div class="survey_item">
+                <div class="survey_item_left">
+                    <div class="survey_block"></div><div class="survey_name">总建筑面积</div>
+                </div>
+                <div class="survey_num">202856<span>m<sup>2</sup></span></div>
+            </div>
+            <div class="survey_item">
+                <div class="survey_item_left">
+                    <div class="survey_block"></div><div class="survey_name">房屋数量
+                </div>
+                </div>
+                <div class="survey_num">13328<span>套</span></div>
+            </div>
+        </div>
+        <div class="chart">
+            <div class="chart_list">
 
+            </div>
+            <div class="chart_info">
+                <div class="chart_info_item">
+                    <img class="chart_info_img" src="../image/index_left/icon_water.png"/>
+                    <div class="chart_info_name">用水</div>
+                    <div class="chart_info_num">22,486<span>吨</span></div>
+                    <img src="../image/index_left/icon_arrow_up.png"/>
+                </div>
+                <div class="chart_info_item">
+                    <img class="chart_info_img" src="../image/index_left/icon_electricity.png"/>
+                    <div class="chart_info_name">用电</div>
+                    <div class="chart_info_num">249,503<span>瓦</span></div>
+                    <img src="../image/index_left/icon_arrow_down.png"/>
+                </div>
+            </div>
+        </div>
+        <div class="video">
+            <div class="video_title"> <img src="../image/index_left/icon_camera.png">视频监控</div>
+            <div class="video_list">
+                <div class="video_item">
+                    <div class="video_item_title"><div class="video_item_block"></div>正门 CAM_a02</div>
+                    <div class="video_item_cont">
+                        <video width="360" height="200"></video>
+                    </div>
+                </div>
+                <div class="video_item">
+                    <div class="video_item_title"><div class="video_item_block"></div>正门 CAM_a02</div>
+                    <div class="video_item_cont">
+                        <video width="360" height="200"></video>
+                    </div>
+                </div>
+                <div class="video_item">
+                    <div class="video_item_title"><div class="video_item_block"></div>正门 CAM_a02</div>
+                    <div class="video_item_cont">
+                        <video width="360" height="200"></video>
+                    </div>
+                </div>
+                <div class="video_item">
+                    <div class="video_item_title"><div class="video_item_block"></div>正门 CAM_a02</div>
+                    <div class="video_item_cont">
+                        <video width="360" height="200"></video>
+                    </div>
+                </div>
+                <div class="video_item">
+                    <div class="video_item_title"><div class="video_item_block"></div>正门 CAM_a02</div>
+                    <div class="video_item_cont">
+                        <video width="360" height="200"></video>
+                    </div>
+                </div>
+                <div class="video_item">
+                    <div class="video_item_title"><div class="video_item_block"></div>正门 CAM_a02</div>
+                    <div class="video_item_cont">
+                        <video width="360" height="200"></video>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
 </body>
 </html>
+
+<script>
+
+
+
+</script>
