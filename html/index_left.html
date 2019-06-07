@@ -20,6 +20,17 @@
         .survey_num{font-size:48px;color: rgba(20, 130, 255, 0.6)}
         .survey_num span{font-size:24px;color: rgba(20, 130, 255, 0.6);padding-left: 5px}
 
+
+
+        .chart{margin-top: 80px;}
+        .chart_list_item{display: flex;align-items: center}
+        .chart_list_block{width: 12px;height:8px;background:rgba(255,255,255,0.3);margin-right:10px;}
+        .chart_list_name{font-size:24px;width:130px;color:rgba(255,255,255,0.7); }
+        .chart_list_num{font-size:36px;color:rgba(255,255,255,1);margin-right: 20px;width: 100px;}
+        .chart_list_bar{width: 500px;margin:0 25px;display: flex;align-items: center}
+        .chart_list_bar_ac{height:20px;background:-webkit-linear-gradient(left,rgba(20, 130, 255, 0.5),rgba(20, 130, 255, 1))}
+        .chart_list_bar_bg{height:4px;background:rgba(255,255,255,0.1)}
+
         .chart_info{width:840px;display: flex;justify-content: space-between;margin-top: 40px;}
         .chart_info_item{width:400px;height:80px;border:2px solid rgba(255,255,255,0.2);
             display: flex;align-items: center}
@@ -79,7 +90,46 @@
         </div>
         <div class="chart">
             <div class="chart_list">
-
+                <div class="chart_list_item">
+                    <div class="chart_list_block"></div>
+                    <div class="chart_list_name">居住人口</div>
+                    <div class="chart_list_bar">
+                        <div class="chart_list_bar_ac" style="width: 500px;"></div>
+                        <div class="chart_list_bar_bg" style="width:0 "></div>
+                    </div>
+                    <div class="chart_list_num">10325</div>
+                    <img src="../image/index_left/icon_arrow_up.png">
+                </div>
+                <div class="chart_list_item">
+                    <div class="chart_list_block"></div>
+                    <div class="chart_list_name">常住人口</div>
+                    <div class="chart_list_bar">
+                        <div class="chart_list_bar_ac" style="width: 250px;"></div>
+                        <div class="chart_list_bar_bg" style="width: 250px"></div>
+                    </div>
+                    <div class="chart_list_num">8742</div>
+                    <img src="../image/index_left/icon_arrow_down.png">
+                </div>
+                <div class="chart_list_item">
+                    <div class="chart_list_block"></div>
+                    <div class="chart_list_name">已登记人口</div>
+                    <div class="chart_list_bar">
+                        <div class="chart_list_bar_ac" style="width: 380px;"></div>
+                        <div class="chart_list_bar_bg" style="width: 120px;"></div>
+                    </div>
+                    <div class="chart_list_num">6937</div>
+                    <img src="../image/index_left/icon_arrow_up.png">
+                </div>
+                <div class="chart_list_item">
+                    <div class="chart_list_block"></div>
+                    <div class="chart_list_name">重点人口</div>
+                    <div class="chart_list_bar">
+                        <div class="chart_list_bar_ac" style="width: 140px;"></div>
+                        <div class="chart_list_bar_bg" style="width: 360px;"></div>
+                    </div>
+                    <div class="chart_list_num">208</div>
+                    <img src="../image/index_left/icon_arrow_down.png">
+                </div>
             </div>
             <div class="chart_info">
                 <div class="chart_info_item">
