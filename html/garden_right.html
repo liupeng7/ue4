@@ -1,0 +1,346 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>主页-右边</title>
+    <link rel="stylesheet" href="../common/com.css">
+    <style>
+        body{background: #000;width: 1200px;}
+        .monitor_title{font-size:36px;letter-spacing: 10px;color:rgba(255,255,255,1);display: flex;align-items: center;}
+        .monitor_title img{margin-right: 20px;  }
+
+
+        .monitor_chart{margin-top: 50px;display: flex}
+        .monitor_left{display: flex;justify-content: space-between;width: 640px;}
+        .monitor_center{display: flex;flex-direction: column;margin-left: 80px;}
+        .monitor_center_item{width:300px;display: flex;align-items: center;justify-content:space-between;margin-bottom: 20px}
+        .monitor_center_name{font-size:20px;color:rgba(255,255,255,0.6);display: flex;align-items: center}
+        .monitor_center_num{font-size:36px;color:rgba(255,255,255,1);}
+        .monitor_center_num span{font-size: 24px;}
+        .monitor_center_block{width:6px;height:20px;margin-right: 13px;}
+        .monitor_right{margin-left: 40px;}
+
+        .donut{width: 120px;height: 120px;position: relative}
+        .donut_num{position: absolute; top:50%;left: 50%;transform: translate(-50%,-50%); width: 60px;height: 60px;
+            font-size:36px;color:rgba(255,255,255,1);border: 10px solid rgba(255,255,255,0.2);border-radius: 50%;
+            display: flex;align-items: center;justify-content: center}
+        .donut_name{color:rgba(255,255,255,0.6);font-size:24px;margin-top: 17px}
+
+
+        .monitor_title2{margin-top:70px;display: flex;align-items: center}
+        .monitor_title2_name{font-size:24px;color:rgba(255,255,255,0.6);margin-right: 36px;}
+        .monitor_title2_mun{font-size:36px;color:rgba(255,255,255,1);}
+        .monitor_title2_mun span{font-size:18px;color:rgba(255,255,255,0.6);}
+        .monitor_list{width: 1200px;overflow-x: auto;overflow-y: hidden; height: 200px;margin-top:40px;padding-bottom: 10px;}
+        .monitor_list_out{width: 2400px;}
+        .monitor_list_item{background: url("../image/garden_right/avatar_bg.png") no-repeat;
+            width: 180px;height: 200px;margin-right: 40px;display: inline-block;}
+        .monitor_list_item.ac{background: url("../image/garden_right/avatar_bg_h.png") no-repeat}
+
+        .monitor_list::-webkit-scrollbar{width: 1000px;height: 2px;position: absolute;}
+        .monitor_list::-webkit-scrollbar-track-piece {background:rgba(255,255,255,0.2);}
+        .monitor_list::-webkit-scrollbar-thumb {background:rgba(255,255,255,0.4);}
+
+
+
+        .monitor_ring{position: relative;margin-top:60px}
+        .monitor_ring_name,.monitor_ring_bg{position: absolute;left: 50%;top:50%;transform: translate(-50%,-50%);
+        font-size: 36px;color: #fff}
+
+        #ringChart{width: 1200px;height: 440px;}
+
+
+        .patrol_title{font-size:36px;letter-spacing: 10px;color:rgba(255,255,255,1);display: flex;align-items: center;}
+        .patrol_title img{margin-right: 20px;}
+        .patrol_cont{display: flex;justify-content: space-between;margin-top: 30px;}
+
+        .patrol_list{width: 600px;height: 240px;overflow: auto;padding-right: 10px;}
+        .patrol_list_title{border-bottom: 2px solid rgba(255,255,255,0.4)}
+        .patrol_list_item{display:flex;font-size:24px;color:rgba(255,255,255,0.4);line-height: 60px}
+        .patrol_list_item.ac{color: #fff}
+        .patrol_list_time{width: 140px;}
+        .patrol_list_name{width: 120px;}
+
+        .patrol_list::-webkit-scrollbar{width: 2px;height: 240px;position: absolute;}
+        .patrol_list::-webkit-scrollbar-track-piece {background:rgba(255,255,255,0.2);}
+        .patrol_list::-webkit-scrollbar-thumb {background:rgba(255,255,255,0.4);}
+
+
+        .patrol_record{width:520px;height:260px;border:1px solid rgba(255,255,255,0.3);padding:0 20px;}
+        .patrol_record_time{font-size:24px;color:rgba(255,255,255,1);line-height:40px;
+            border-bottom: 1px solid rgba(255,255,255,0.3)}
+        .patrol_record_cont{margin-top: 20px;display: flex}
+        .patrol_record_info{margin-left: 20px;}
+        .patrol_record_info_item{font-size:24px;color:rgba(255,255,255,0.4);line-height: 56px;}
+        .patrol_record_info_item span{font-size:32px;color:rgba(255,255,255,1);margin-left: 20px;}
+
+
+    </style>
+</head>
+<body>
+    <div class="index">
+        <div class="monitor">
+            <div class="monitor_title"> <img src="../image/garden_right/icon_people.png">人脸监控</div>
+            <div class="monitor_chart">
+                <div class="monitor_left">
+                    <div class="donut" id="donut1">
+                        <svg version="1.1" xmlns="http://www.w3.org/2000/svg" width="120" height="120" viewBox="0 0 240 240">
+                            <circle stroke="rgba(255,255,255,0.4)" stroke-width="4" fill="transparent" r="118" cx="120" cy="120"></circle>
+                            <path id="circlePath" d="M 120 10 a 60 60 0 0 0 0 220 a 60 60 0 0 0 0 -220 Z" fill="none" stroke="rgba(255, 255, 255, 1)" stroke-width="20" stroke-linecap="round" stroke-dasharray="693.350372">
+                                <animate id="circleAnimate" attributeName="stroke-dashoffset" from="693.350372" to="0" dur="3s" repeatDur="" fill="freeze" begin="0" restart="whenNotActive"></animate>
+                            </path>
+                        </svg>
+                        <div class="donut_num">52</div>
+                        <div class="donut_name">摄像头总数</div>
+                    </div>
+                    <div class="donut" id="donut2">
+                        <svg version="1.1" xmlns="http://www.w3.org/2000/svg" width="120" height="120" viewBox="0 0 240 240">
+                            <circle stroke="rgba(255,255,255,0.4)" stroke-width="4" fill="transparent" r="118" cx="120" cy="120"></circle>
+                            <path id="circlePath" d="M 120 10 a 60 60 0 0 0 0 220 a 60 60 0 0 0 0 -220 Z" fill="none" stroke="rgba(20, 130, 255, 1)" stroke-width="20" stroke-linecap="round" stroke-dasharray="693.350372">
+                                <animate id="circleAnimate" attributeName="stroke-dashoffset" from="693.350372" to="0" dur="3s" repeatDur="" fill="freeze" begin="0" restart="whenNotActive"></animate>
+                            </path>
+                        </svg>
+                        <div class="donut_num">24</div>
+                        <div class="donut_name">人脸摄像头</div>
+                    </div>
+                    <div class="donut" id="donut3">
+                        <svg version="1.1" xmlns="http://www.w3.org/2000/svg" width="120" height="120" viewBox="0 0 240 240">
+                            <circle stroke="rgba(255,255,255,0.4)" stroke-width="4" fill="transparent" r="118" cx="120" cy="120"></circle>
+                            <path id="circlePath" d="M 120 10 a 60 60 0 0 0 0 220 a 60 60 0 0 0 0 -220 Z" fill="none" stroke="rgba(140, 65, 255, 1)" stroke-width="20" stroke-linecap="round" stroke-dasharray="693.350372">
+                                <animate id="circleAnimate" attributeName="stroke-dashoffset" from="693.350372" to="0" dur="3s" repeatDur="" fill="freeze" begin="0" restart="whenNotActive"></animate>
+                            </path>
+                        </svg>
+                        <div class="donut_num">32</div>
+                        <div class="donut_name">可控摄像头</div>
+                    </div>
+                    <div class="donut" id="donut4">
+                        <svg version="1.1" xmlns="http://www.w3.org/2000/svg" width="120" height="120" viewBox="0 0 240 240">
+                            <circle stroke="rgba(255,255,255,0.4)" stroke-width="4" fill="transparent" r="118" cx="120" cy="120"></circle>
+                            <path id="circlePath" d="M 120 10 a 60 60 0 0 0 0 220 a 60 60 0 0 0 0 -220 Z" fill="none" stroke="rgba(255, 153, 20, 1)" stroke-width="20" stroke-linecap="round" stroke-dasharray="693.350372">
+                                <animate id="circleAnimate" attributeName="stroke-dashoffset" from="693.350372" to="0" dur="3s" repeatDur="" fill="freeze" begin="0" restart="whenNotActive"></animate>
+                            </path>
+                        </svg>
+                        <div class="donut_num">2</div>
+                        <div class="donut_name">故障摄像头</div>
+                    </div>
+                </div>
+                <div class="monitor_center">
+                    <div class="monitor_center_item">
+                        <div class="monitor_center_name"><div class="monitor_center_block" style="background:rgba(255,255,255,0.6); "></div>摄像头覆盖区域</div>
+                        <div class="monitor_center_num">78.6<span>%</span></div>
+                    </div>
+                    <div class="monitor_center_item">
+                        <div class="monitor_center_name"><div class="monitor_center_block" style="background:rgba(20,130,255,1);"> </div>人脸识别区域 </div>
+                        <div class="monitor_center_num">48.1<span>%</span></div>
+                    </div>
+                    <div class="monitor_center_item">
+                        <div class="monitor_center_name"><div class="monitor_center_block" style="background:rgba(140, 65, 255, 1)"></div>可控摄像头区域</div>
+                        <div class="monitor_center_num">69.5<span>%</span></div>
+                    </div>
+                </div>
+                <div class="monitor_right">
+                    <div class="donuts" id="donut">
+                        <svg version="1.1" xmlns="http://www.w3.org/2000/svg" width="180" height="180" viewBox="0 0 360 360">
+                            <path id="circlePath" d="M 180 10 a 170 170 0 0 1 0 340 a 170 170 0 0 1 0 -340 Z" fill="none" stroke="rgba(255,255,255,0.6)" stroke-width="16" stroke-linecap="round" stroke-dasharray="1068.141484">
+                                <animate id="circleAnimate" attributeName="stroke-dashoffset" from="1068.141484" to="0" dur="3s" repeatDur="" fill="freeze" begin="0" restart="whenNotActive"></animate>
+                            </path>
+                            <path id="circlePath2" d="M 180 50 a 130 130 0 0 1 0 260 a 130 130 0 0 1 0 -260 Z" fill="none" stroke="rgba(20, 130, 255, 1)" stroke-width="16" stroke-linecap="round" stroke-dasharray="816.8140">
+                                <animate id="circleAnimate2" attributeName="stroke-dashoffset" from="816.8140" to="0" dur="3s" repeatDur="" fill="freeze" begin="0" restart="whenNotActive"></animate>
+                            </path>
+                            <path id="circlePath3" d="M 180 90 a 90 90 0 0 1 0 180 a 90 90 0 0 1 0 -180 Z" fill="none" stroke="rgba(140, 65, 255, 1)" stroke-width="16" stroke-linecap="round" stroke-dasharray="565.48668">
+                                <animate id="circleAnimate3" attributeName="stroke-dashoffset" from="565.48668" to="0" dur="3s" repeatDur="" fill="freeze" begin="0" restart="whenNotActive"></animate>
+                            </path>
+                        </svg>
+
+                    </div>
+                </div>
+            </div>
+            <div class="monitor_title2">
+                <div class="monitor_title2_name">监控</div>
+                <div class="monitor_title2_mun">1749<span>人</span></div>
+            </div>
+            <div class="monitor_list">
+                <div class="monitor_list_out">
+                    <div class="monitor_list_item"></div>
+                    <div class="monitor_list_item ac"></div>
+                    <div class="monitor_list_item"></div>
+                    <div class="monitor_list_item"></div>
+                    <div class="monitor_list_item"></div>
+                    <div class="monitor_list_item"></div>
+                    <div class="monitor_list_item"></div>
+                    <div class="monitor_list_item"></div>
+                    <div class="monitor_list_item"></div>
+                    <div class="monitor_list_item"></div>
+                </div>
+            </div>
+            <div class="monitor_ring">
+                <div id="ringChart"></div>
+                <img class="monitor_ring_bg" src="../image/garden_right/circle_bg.png" >
+                <div class="monitor_ring_name">设备分类</div>
+            </div>
+        </div>
+        <div class="patrol">
+            <div class="patrol_title"><img src="../image/garden_right/icon_list.png">巡更记录</div>
+            <div class="patrol_cont">
+                <div class="patrol_list">
+                    <div class="patrol_list_title">
+                        <div class="patrol_list_item">
+                            <div class="patrol_list_time">时间</div>
+                            <div class="patrol_list_name">姓名</div>
+                            <div class="patrol_list_detail">刷卡 14 栋二单元 B 门门禁 </div>
+                        </div>
+                    </div>
+                    <div class="patrol_list_cont">
+                        <div class="patrol_list_item">
+                            <div class="patrol_list_time">10:24:56</div>
+                            <div class="patrol_list_name">张三四</div>
+                            <div class="patrol_list_detail">刷卡 14 栋二单元 B 门门禁 </div>
+                        </div>
+                        <div class="patrol_list_item ac">
+                            <div class="patrol_list_time">10:24:56</div>
+                            <div class="patrol_list_name">张三四</div>
+                            <div class="patrol_list_detail">刷卡 14 栋二单元 B 门门禁 </div>
+                        </div>
+                        <div class="patrol_list_item">
+                            <div class="patrol_list_time">10:24:56</div>
+                            <div class="patrol_list_name">张三四</div>
+                            <div class="patrol_list_detail">刷卡 14 栋二单元 B 门门禁 </div>
+                        </div>
+                        <div class="patrol_list_item">
+                            <div class="patrol_list_time">10:24:56</div>
+                            <div class="patrol_list_name">张三四</div>
+                            <div class="patrol_list_detail">刷卡 14 栋二单元 B 门门禁 </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="patrol_record">
+                    <div class="patrol_record_time">09:30:48    巡更已打卡</div>
+                    <div class="patrol_record_cont">
+                        <img class="patrol_record_pic" src="../image/garden_right/avatar_deco.png">
+                        <div class="patrol_record_info">
+                            <div class="patrol_record_info_item">姓名<span>张三四</span></div>
+                            <div class="patrol_record_info_item">电话<span>188 8888 8888</span></div>
+                            <div class="patrol_record_info_item">职位<span>保安队A队队长</span></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+</body>
+</html>
+<script src="../plugin/jquery-3.1.1.min.js"></script>
+<script src="../plugin/echarts.min.js"></script>
+<script src="../common/com.js"></script>
+<script>
+    runAnimate(52,$('#donut1'));
+    runAnimate(24,$('#donut2'));
+    runAnimate(32,$('#donut3'));
+    runAnimate(5,$('#donut4'));
+
+
+    let $circleAnimate = $('.donuts').find('#circleAnimate');
+    let $circleAnimate2 = $('.donuts').find('#circleAnimate2');
+    let $circleAnimate3 = $('.donuts').find('#circleAnimate3');
+    let per = 78.6/100;
+    let per2 = 48.1/100;
+    let per3 = 69.5/100;
+    let durTime = 3 * per;
+    let durTime2 = 3 * per2;
+    let durTime3 = 3 * per3;
+
+    $circleAnimate[0].setAttribute('repeatDur', durTime + 's');
+    $circleAnimate2[0].setAttribute('repeatDur', durTime2 + 's');
+    $circleAnimate3[0].setAttribute('repeatDur', durTime3 + 's');
+
+    $circleAnimate[0].beginElement();
+    $circleAnimate2[0].beginElement();
+    $circleAnimate3[0].beginElement();
+
+    let myChart = echarts.init(document.getElementById('ringChart'));
+    option = {
+        color:['#29F7FE','#37A4FE','#2977FE','rgba(140, 65, 255, 1)'],
+        series: [
+            {
+                type:'pie',
+                radius: ['50%', '70%'],
+                roseType: 'area',
+                avoidLabelOverlap: false,
+                label: {
+                    normal: {
+                        show: true,
+                        formatter:function (pp) {
+                            let res = '';
+
+                            if(pp.dataIndex==1 || pp.dataIndex==0){
+                                res = '{font1|'+pp.name+'}'+'{font2|'+pp.value+'}'+'{img1|}';
+                            }else{
+                                res = '{img1|}'+'{font1|'+pp.name+'}'+'{font2|'+pp.value+'}';
+                            }
+                            return res
+                        },
+                        rich:{
+                          img1:{
+                              width: 80,
+                              height:60,
+                              backgroundColor:{
+                                  image:'../image/index_right/sta_normal.png',
+
+                              }
+                          },
+                            img2:{
+                                width: 220,
+                                height:60,
+                                backgroundColor:{
+                                    image:'../image/index_right/line_2.png',
+
+                                }
+                            },
+                            font1:{
+                                width:120,
+                                align:'center',
+                                fontSize: 24,
+                                color:'rgba(255,255,255,0.6)',
+
+                            },
+                            font2:{
+                                width:80,
+                                align:'center',
+                                fontSize: 36,
+                                color:'#fff',
+                            }
+                        },
+                        // position: 'center'
+                    },
+                    // emphasis: {
+                    //     show: true,
+                    //     // textStyle: {
+                    //     //     fontSize: '30',
+                    //     //     fontWeight: 'bold'
+                    //     // }
+                    // }
+                },
+                labelLine: {
+                    normal: {
+                        show: true,
+                        length:60,
+                        length2:90,
+                        lineStyle:{
+                            color:'rgba(255,255,255,0.5)',
+                            width:2,
+                        }
+                    }
+                },
+                data:[
+                    {value:233, name:'烟感'},
+                    {value:263, name:'消防栓'},
+                    {value:183, name:'门禁'},
+                    {value:196, name:'巡更设备'},
+                ]
+            }
+        ]
+    };
+    myChart.setOption(option);
+
+</script>
