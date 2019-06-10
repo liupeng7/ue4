@@ -1,3 +1,10 @@
 
 
 *{padding:0;margin: 0;font-family:SourceHanSansCN-Regular;}
+.title{font-size:36px;letter-spacing: 10px;color:rgba(255,255,255,1);display: flex;align-items: center;}
+.title img{margin-right: 20px;}
+
+
+.flexBox{display: flex;justify-content: space-around;}
+.flexBox_item{display: flex;flex-direction: column;justify-content: center;}
+

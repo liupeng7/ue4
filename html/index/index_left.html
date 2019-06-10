@@ -5,10 +5,355 @@
     <title>主题页-左边</title>
     <link rel="stylesheet" href="../../common/com.css">
     <style>
+        body{background: #000;width: 1200px;}
+        .top{display: flex}
+        .top_left{margin-right: 140px;}
+        .top_left_list{margin-top: 60px;}
+        .top_left_item{display: flex;align-items: baseline;justify-content: space-between;width: 400px;}
+        .top_left_name{font-size:26px;color:rgba(255,255,255,0.6);}
+        .top_left_name .block{width:12px;height:8px;background:rgba(255,255,255,0.3);display: inline-block;
+            margin-right: 10px; margin-bottom: 4px;}
+        .top_left_num{font-size:50px;color:rgba(41, 248, 255, 0.6)}
+        .top_right_cont{margin-top: 36px;}
+        #ringChart{width: 460px;height: 240px;}
 
+        .center{display: flex;margin-top: 50px;}
+        .center_left{margin-right: 140px;}
+        #radarChart{width: 400px;height: 380px;margin-top: 40px;}
+        .center_right_list{margin-top: 60px;}
+        .center_right_item{display: flex;align-items: baseline;justify-content: space-between;width: 460px;}
+        .center_right_name{font-size:26px;color:rgba(255,255,255,0.7);}
+        .center_right_name .block{width:12px;height:8px;background:rgba(255,255,255,0.3);display: inline-block;
+            margin-right: 25px;    margin-bottom: 4px;}
+        .center_right_num{font-size:50px;color:rgba(255,255,255,1);}
+        .center_right_num img{margin-left: 30px;}
+        #lineChart{width: 460px;height: 200px;}
+
+        .bottom{margin-top: 50px;}
     </style>
 </head>
 <body>
-
+    <div class="index">
+        <div class="top">
+            <div class="top_left">
+                <div class="title"><img src="../../image/garden_left/icon_camera.png">党建活动</div>
+                <div class="top_left_list">
+                    <div class="top_left_item">
+                        <div class="top_left_name"><div class="block"></div>活动反馈数</div>
+                        <div class="top_left_num">112</div>
+                    </div>
+                    <div class="top_left_item">
+                        <div class="top_left_name"><div class="block"></div>心得体会数</div>
+                        <div class="top_left_num">435</div>
+                    </div>
+                    <div class="top_left_item">
+                        <div class="top_left_name"><div class="block"></div>评论数</div>
+                        <div class="top_left_num">1346</div>
+                    </div>
+                </div>
+            </div>
+            <div class="top_right">
+                <div class="title"><img src="../../image/garden_left/icon_camera.png">教育学习</div>
+                <div class="top_right_cont">
+                    <div id ="ringChart"></div>
+                </div>
+            </div>
+        </div>
+        <div class="center">
+            <div class="center_left">
+                <div class="title"><img src="../../image/garden_left/icon_camera.png">党建活动类型</div>
+                <div id="radarChart"></div>
+            </div>
+            <div class="center_right">
+                <div class="title"><img src="../../image/garden_left/icon_camera.png">活动参与度</div>
+                <div class="center_right_info">
+                    <div class="center_right_list">
+                        <div class="center_right_item">
+                            <div class="center_right_name"><div class="block"></div>累计学时</div>
+                            <div class="center_right_num">12674<img src="../../image/common/icon_arrow_down.png"></div>
+                        </div>
+                        <div class="center_right_item">
+                            <div class="center_right_name"><div class="block"></div>累计学习数</div>
+                            <div class="center_right_num">1346<img src="../../image/common/icon_arrow_up.png"></div>
+                        </div>
+                    </div>
+                    <div id="lineChart"></div>
+                </div>
+            </div>
+        </div>
+        <div class="bottom">
+            <div class="title"><img src="../../image/garden_left/icon_camera.png">学习热点</div>
+        </div>
+    </div>
 </body>
 </html>
+
+<script src="../../plugin/jquery-3.1.1.min.js"></script>
+<script src="../../plugin/echarts.min.js"></script>
+
+<script>
+    radarChart();
+    lineChart();
+    ringChart();
+    function radarChart(){
+        let myChart= echarts.init(document.getElementById('radarChart'));
+        let option ={
+            tooltip: {
+                trigger: 'axis',
+            },
+            radar: [
+                {
+                    name: {
+                        show:true,
+                        fontSize:24,
+                        color:'rgba(255, 255, 255, 0.6)'
+                    },
+                    // shape:'circle',
+                    nameGap:10,
+                    splitNumber: 4,
+                    indicator: [
+                        {text: '分类名',index:0,value:'98.3', max: 100},
+                        {text: '分类名',index:1,value:'60', max: 100},
+                        {text: '分类名',index:2,value:'83', max: 100},
+                        {text: '分类名',index:3,value:'93.3', max: 100},
+                        {text: '分类名',index:4,value:'93.5', max: 100},
+                        {text: '分类名',index:5,value:'71.9', max: 100}
+                    ],
+                    center:['50%','50%'],
+                    radius: '60%',
+                    splitLine: {
+                        lineStyle: {
+                            color: 'rgba(238,238,238,1)'
+                        }
+                    },
+                    splitArea: {
+                        areaStyle:{
+                            color:['rgba(255,255,255,0.3)','rgba(255,255,255,0)'],
+
+                        }
+                    },
+                    axisLine: {
+                        lineStyle: {
+                            color: 'rgba(255,255,255,0.2)'
+                        }
+                    }
+                },
+
+            ],
+            series: [
+                {
+                    name:'',
+                    type: 'radar',
+                    symbol: '',
+                    symbolSize:16,
+                    lineStyle:{
+                        normal: {
+                            width: 4,
+                            color:'rgba(41, 248, 255, 0.9)'
+                        }
+                    },
+                    itemStyle: {
+                        normal:{
+                            color: 'rgba(60, 250, 120, 1)'
+                        }
+                    },
+                    areaStyle:{
+                        normal: {
+                            color:'rgba(94, 153, 255, 1)'
+                        }
+                    },
+                    data: [
+                        {
+                            value:  [98.3, 40, 83, 60.3, 93.5, 30.9],
+                            name:['分类名','分类名','分类名','分类名','分类名','分类名']
+                        },
+
+                    ]
+                },
+            ]
+        };
+        myChart.setOption(option);
+    }
+
+    function lineChart() {
+        let myChart = echarts.init(document.getElementById('lineChart'));
+        let option = {
+            legend:{
+                show:false,
+            },
+            tooltip: {
+                trigger:'axis',
+            },
+            grid: {
+                left:'10%' ,
+                right:0 ,
+                top:'10%',
+                bottom: '20%',
+                // containLabel: true
+            },
+            color:['#FFC36A'],
+            xAxis: {
+                type: 'category',
+                axisTick: {
+                    show: false
+                },
+                axisLabel: {
+                    show: true,
+                    interval:function (index,value) {
+                        if(index%2 !=0){
+                            return value
+                        }
+                    },
+                    textStyle: {
+                        color: 'rgba(255,255,255,0.75)',
+                        fontSize: 20,
+                        inside: true,
+                    }
+                },
+                axisLine: {
+                    show:true,
+                    lineStyle:{
+                        color:'#88949E',
+                        width:3,
+                    },
+                },
+                boundaryGap:false,
+                data: ['0点','02点','04点','06点','08点','10点','12点','14点','16点','18点','20点']
+            },
+            yAxis: {
+                type: 'value',
+                axisTick: {
+                    show: false
+                },
+                axisLine: {
+                    show: false,
+                },
+                axisLabel: {
+                    show: true,
+                    color:'rgba(255,255,255,0.5)',
+                    margin:16,
+                    fontSize:22,
+                },
+                splitLine: {
+                    show: false,
+                    lineStyle:{
+                        color:'rgba(255,255,255,0.15)',
+                        type:'dashed'
+                    }
+                },
+            },
+            series: [
+                {
+                    name:'今日人流数',
+                    type: 'line',
+                    showSymbol:false,
+                    smooth:false,
+                    z: 3,
+                    lineStyle:{
+                        normal:{
+                            width:4,
+                            color:'rgba(140, 65, 255, 1)',
+                        }
+                    },
+                    areaStyle: {
+                        normal: {
+                            color: new echarts.graphic.LinearGradient(0, 0, 0, 1, [{
+                                offset: 0,
+                                color: 'rgba(190,148,255,0.5)'
+                            }, {
+                                offset: 1,
+                                color: 'rgba(140,65,255,0)'
+                            }])
+                        }
+                    },
+                    markPoint:{
+                        name:'',
+                        data:[{
+                            type:'max',
+                            symbol:'circle',
+                            symbolSize:'18',
+                            label:{
+                                show:false
+                            },
+                            itemStyle:{
+                                color:'rgba(218, 254, 255, 1)',
+                                borderColor:'rgba(41,248,255,0.3)',
+                                borderWidth:16,
+                                // shadowColor:'rgba(153,252,255,0.1)',
+                                // shadowBlur:20,
+                            },
+                        }],
+                        animationEasing: 'linear',
+                        animationDelay: function (idx) {
+                            return idx * 400;
+                        },
+                    },
+                    animationEasing: 'linear',
+                    animationDelay: function (idx) {
+                        return idx * 400;
+                    },
+                    data: [18,16,12,14,19,15,9,6,8,12,14],
+                },
+            ]
+        };
+        myChart.clear();
+        myChart.setOption(option)
+    }
+
+    function ringChart() {
+        let myChart = echarts.init(document.getElementById('ringChart'));
+        let option = {
+
+            legend: {
+                orient: 'vertical',
+                x: 'right',
+                y:'center',
+                itemGap:26,
+                itemWidth:20,
+                itemHeight:20,
+                textStyle:{
+                    color:'rgba(255,255,255,0.6)',
+                    fontSize:24,
+                }
+            },
+            series: [
+                {
+                    type:'pie',
+                    center:['35%','50%'],
+                    radius: ['50%', '70%'],
+                    roseType: 'area',
+                    avoidLabelOverlap: true,
+                    label: {
+                        normal: {
+                            show: true,
+                            fontSize:28,
+                            color:'rgba(255,255,255,0.6)',
+                            formatter:function (pp) {
+                                let res =pp.value+'%';
+                                return res
+                            },
+                        },
+
+                    },
+                    color:['#29F7FE','#37A4FE','#2977FE',],
+                    labelLine: {
+                        normal: {
+                            show: false,
+                            // lineStyle:{
+                            //     color:'rgba(255,255,255,0.5)',
+                            //     width:2,
+                            // }
+                        }
+                    },
+                    data:[
+                        {value:40, name:'分类名'},
+                        {value:30, name:'分类名2'},
+                        {value:30, name:'分类名3'},
+                    ]
+                }
+            ]
+        };
+        myChart.setOption(option);
+    }
+
+</script>
