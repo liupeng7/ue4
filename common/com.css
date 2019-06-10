@@ -2,9 +2,22 @@
 
 *{padding:0;margin: 0;font-family:SourceHanSansCN-Regular;}
 .title{font-size:36px;letter-spacing: 10px;color:rgba(255,255,255,1);display: flex;align-items: center;}
+.title_box{width:20px;height:80px;background:rgba(255,255,255,1);opacity:0.2;margin-right: 10px;}
 .title img{margin-right: 20px;}
 
 
 .flexBox{display: flex;justify-content: space-around;}
 .flexBox_item{display: flex;flex-direction: column;justify-content: center;}
+
+.video_list{height: 600px;overflow: auto;margin-top: 53px;display: flex;flex-wrap: wrap;padding-left: 30px;}
+.video_item{width: 420px;}
+.video_item_title{font-size:18px;color:rgba(255,255,255,0.6);display: flex;align-items: center}
+.video_item_block{width:12px;height:6px;background:rgba(60,250,120,1);margin-right: 8px;}
+.video_item_cont{background: url("../image/garden_left/video_bg.png") no-repeat;width: 380px;height: 240px}
+.video_item_cont video{margin-top: 20px;margin-left: 10px;}
+
+/*滚动条样式*/
+.video_list::-webkit-scrollbar{width: 2px;height: 240px;position: absolute;}
+.video_list::-webkit-scrollbar-track-piece {background:rgba(255,255,255,0.2);}
+.video_list::-webkit-scrollbar-thumb {background:rgba(255,255,255,0.4);}
 
