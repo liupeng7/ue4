@@ -5,24 +5,25 @@
     <title>登陆</title>
     <link rel="stylesheet" href="../common/com.css">
     <style>
-        body{width: 1920px;height: 540px;}
-        .index{width: 600px;height: 260px;background:rgba(0,0,0,0.75);border:2px solid;
+        body{width: 1900px;height: 520px;background: rgba(0,0,0,0.5)}
+        .index{width: 400px;height: 160px;background:rgba(0,0,0,0.75);border:2px solid;
             border-image:linear-gradient(0deg, rgba(91, 108, 122, 0.75), rgba(225, 254, 255, 0.75)) 2 2;
-            box-shadow:0px 0px 29px 0px rgba(0, 0, 0, 0.57), 0px 0px 51px 0px rgba(0, 0, 0, 0.5);border-radius:10px;padding-top: 61px;
+            box-shadow:0px 0px 29px 0px rgba(0, 0, 0, 0.57), 0px 0px 51px 0px rgba(0, 0, 0, 0.5);border-radius:10px;padding-top: 30px;padding-bottom: 20px;
         position: absolute;left:50%;top:50%;transform: translate(-50%,-50%)}
-        .index_top{width:445px;height:43px;font-size:43px;font-weight:bold;color:rgba(255,255,255,1);margin: 0 auto;text-align: center}
-        .index_input{margin-top:60px;border-bottom:1px solid rgb(77,80,85);padding-bottom: 20px;min-width: 292px;}
-        .index_input input{border:none;background: none;font-size: 24px;outline:none;width: 260px;}
+        .index_box{margin-top:30px;}
+        .index_top{width:360px;height:43px;font-size:36px;font-weight:bold;color:rgba(255,255,255,1);margin: 0 auto;text-align: center}
+        .index_input{border-bottom:1px solid rgb(77,80,85);}
+        .index_input input{border:none;background: none;font-size: 20px;outline:none;width: 200px;}
         .index_input .xb_icon{font-size: 24px;margin-right:20px}
-        .index_btn{cursor:pointer;width: 102px;height: 50px;border-radius:10px;background: rgb(11,144,206);
-            text-align:center;margin-top:60px;font-size: 26px;line-height: 50px;margin-left: 26px}
+        .index_btn{cursor:pointer;width: 80px;height: 50px;border-radius:10px;background: rgb(11,144,206);
+            text-align:center;font-size: 26px;line-height: 50px;margin-left: 26px}
     </style>
 
 </head>
 <body>
     <div class="index">
         <div class="index_top">XXXXX</div>
-        <div style="display: flex;justify-content: center">
+        <div class="index_box" style="display: flex;justify-content: center">
             <div class="index_input">
                 <i class="xb_icon lock-alt-re input_icon"></i>
                 <input type="password" id="password" placeholder="请输入密码" value="">
