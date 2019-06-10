@@ -1,0 +1,166 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>楼层</title>
+    <link rel="stylesheet" href="../../common/com.css">
+    <style>
+        body{background: #000;width: 840px;}
+
+        .chart_survey{display: flex;justify-content:space-between;margin-top: 90px;}
+        .chart_survey_item{display: flex;align-items: center;width: 420px;}
+        .chart_survey_item img{width: 104px;height: 104px;margin-right: 35px;}
+        .chart_survey_name{font-size:24px;color:rgba(255,255,255,0.6);}
+        .chart_survey_num{font-size:60px;color: transparent;}
+        .chart_survey_num span{font-size:24px;}
+
+        .chart_list{margin-top: 60px;}
+        .chart_list_item{display: flex;align-items: center}
+        .chart_list_block{width: 12px;height:8px;background:rgba(255,255,255,0.3);margin-right:10px;}
+        .chart_list_name{font-size:24px;width:130px;color:rgba(255,255,255,0.7); }
+        .chart_list_num{font-size:36px;color:rgba(255,255,255,1);margin-right: 20px;width: 100px;}
+        .chart_list_bar{width: 500px;margin:0 25px;display: flex;align-items: center}
+        .chart_list_bar_ac{height:20px;background:-webkit-linear-gradient(left,rgba(20, 130, 255, 0.5),rgba(20, 130, 255, 1))}
+        .chart_list_bar_bg{height:4px;background:rgba(255,255,255,0.1)}
+
+        .chart_info{width:840px;display: flex;justify-content: space-between;margin-top: 40px;}
+        .chart_info_item{width:400px;height:80px;border:2px solid rgba(255,255,255,0.2);
+            display: flex;align-items: center}
+        .chart_info_img{padding:0 30px;}
+        .chart_info_name{font-size:24px;color:rgba(255,255,255,0.7);margin-right: 50px;}
+        .chart_info_num{font-size:36px;color:rgba(255,255,255,1);}
+        .chart_info_num span{font-size:18px;color:rgba(255,255,255,0.6);padding: 0 14px 0 7px;}
+
+        .bottom{margin-top: 60px;}
+    </style>
+</head>
+<body>
+    <div class="index">
+        <div class="BigTitle"><div class="title_box"></div>宏发上域花园A7栋-3F</div>
+
+        <div class="chart_survey">
+            <div class=B>
+                <img src="">
+                <div class="chart_survey_block">
+                    <div class="chart_survey_name">占地面积</div>
+                    <div class="chart_survey_num" style="background:-webkit-linear-gradient(rgba(41, 248, 255, 1), rgba(41, 248, 255, 0.6));
+                    -webkit-background-clip: text; ">49246<span>m<sup>2</sup></span></div>
+                </div>
+            </div>
+            <div class="chart_survey_item">
+                <img src="">
+                <div class="chart_survey_block">
+                    <div class="chart_survey_name">房屋数量</div>
+                    <div class="chart_survey_num" style="background:-webkit-linear-gradient(rgba(62, 152, 255, 1), rgba(62, 152, 255, 0.6));
+                    -webkit-background-clip: text; ">13328<span>m<sup>2</sup></span></div>
+                </div>
+            </div>
+        </div>
+
+        <div class="chart_list">
+            <div class="chart_list_item">
+                <div class="chart_list_block"></div>
+                <div class="chart_list_name">居住人口</div>
+                <div class="chart_list_bar">
+                    <div class="chart_list_bar_ac" style="width: 500px;"></div>
+                    <div class="chart_list_bar_bg" style="width:0 "></div>
+                </div>
+                <div class="chart_list_num">10325</div>
+                <img src="../../image/common/icon_arrow_up.png">
+            </div>
+            <div class="chart_list_item">
+                <div class="chart_list_block"></div>
+                <div class="chart_list_name">常住人口</div>
+                <div class="chart_list_bar">
+                    <div class="chart_list_bar_ac" style="width: 250px;"></div>
+                    <div class="chart_list_bar_bg" style="width: 250px"></div>
+                </div>
+                <div class="chart_list_num">8742</div>
+                <img src="../../image/common/icon_arrow_down.png">
+            </div>
+            <div class="chart_list_item">
+                <div class="chart_list_block"></div>
+                <div class="chart_list_name">已登记人口</div>
+                <div class="chart_list_bar">
+                    <div class="chart_list_bar_ac" style="width: 380px;"></div>
+                    <div class="chart_list_bar_bg" style="width: 120px;"></div>
+                </div>
+                <div class="chart_list_num">6937</div>
+                <img src="../../image/common/icon_arrow_up.png">
+            </div>
+            <div class="chart_list_item">
+                <div class="chart_list_block"></div>
+                <div class="chart_list_name">重点人口</div>
+                <div class="chart_list_bar">
+                    <div class="chart_list_bar_ac" style="width: 140px;"></div>
+                    <div class="chart_list_bar_bg" style="width: 360px;"></div>
+                </div>
+                <div class="chart_list_num">208</div>
+                <img src="../../image/common/icon_arrow_down.png">
+            </div>
+        </div>
+        <div class="chart_info">
+            <div class="chart_info_item">
+                <img class="chart_info_img" src="../../image/garden_left/icon_water.png"/>
+                <div class="chart_info_name">用水</div>
+                <div class="chart_info_num">22,486<span>吨</span></div>
+                <img src="../../image/common/icon_arrow_up.png"/>
+            </div>
+            <div class="chart_info_item">
+                <img class="chart_info_img" src="../../image/garden_left/icon_electricity.png"/>
+                <div class="chart_info_name">用电</div>
+                <div class="chart_info_num">249,503<span>瓦</span></div>
+                <img src="../../image/common/icon_arrow_down.png"/>
+            </div>
+        </div>
+        <div class="bottom">
+            <div class="title"><img src="../../image/garden_left/icon_camera.png">视频监控</div>
+            <div class="video_list">
+                <div class="video_item">
+                    <div class="video_item_title"><div class="video_item_block"></div>正门 CAM_a02</div>
+                    <div class="video_item_cont">
+                        <video width="360" height="200"></video>
+                    </div>
+                </div>
+                <div class="video_item">
+                    <div class="video_item_title"><div class="video_item_block"></div>正门 CAM_a02</div>
+                    <div class="video_item_cont">
+                        <video width="360" height="200"></video>
+                    </div>
+                </div>
+                <div class="video_item">
+                    <div class="video_item_title"><div class="video_item_block"></div>正门 CAM_a02</div>
+                    <div class="video_item_cont">
+                        <video width="360" height="200"></video>
+                    </div>
+                </div>
+                <div class="video_item">
+                    <div class="video_item_title"><div class="video_item_block"></div>正门 CAM_a02</div>
+                    <div class="video_item_cont">
+                        <video width="360" height="200"></video>
+                    </div>
+                </div>
+                <div class="video_item">
+                    <div class="video_item_title"><div class="video_item_block"></div>正门 CAM_a02</div>
+                    <div class="video_item_cont">
+                        <video width="360" height="200"></video>
+                    </div>
+                </div>
+                <div class="video_item">
+                    <div class="video_item_title"><div class="video_item_block"></div>正门 CAM_a02</div>
+                    <div class="video_item_cont">
+                        <video width="360" height="200"></video>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+    </div>
+
+</body>
+</html>
+
+<script>
+
+
+</script>

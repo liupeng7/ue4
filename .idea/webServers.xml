@@ -2,7 +2,7 @@
 <project version="4">
   <component name="WebServers">
     <option name="servers">
-      <webServer id="fa7d4114-d277-4f2e-a32e-e09572768625" name="ue_project" url="http://139.9.251.25">
+      <webServer id="fa7d4114-d277-4f2e-a32e-e09572768625" name="ue_project" url="">
         <fileTransfer host="139.9.251.25" port="22" rootFolder="/web" accessType="SFTP">
           <advancedOptions>
             <advancedOptions dataProtectionLevel="Private" passiveMode="true" shareSSLContext="true" />
