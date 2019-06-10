@@ -9,8 +9,8 @@
 .flexBox{display: flex;justify-content: space-around;}
 .flexBox_item{display: flex;flex-direction: column;justify-content: center;}
 
-.video_list{height: 600px;overflow: auto;margin-top: 53px;display: flex;flex-wrap: wrap;padding-left: 30px;}
-.video_item{width: 420px;}
+.video_list{height: 600px;overflow: auto;margin-top: 53px;display: flex;flex-wrap: wrap;}
+.video_item{width: 418px;}
 .video_item_title{font-size:18px;color:rgba(255,255,255,0.6);display: flex;align-items: center}
 .video_item_block{width:12px;height:6px;background:rgba(60,250,120,1);margin-right: 8px;}
 .video_item_cont{background: url("../image/garden_left/video_bg.png") no-repeat;width: 380px;height: 240px}

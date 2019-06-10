@@ -5,15 +5,70 @@
     <title>楼层</title>
     <link rel="stylesheet" href="../../common/com.css">
     <style>
-        body{background: #000;width: 900px;}
+        body{background: #000;width: 840px;}
 
+
+        .top{margin-top: 50px;}
+        .top_cont{width: 840px;height: 320px;background: rgba(255,255,255,0.1);}
+
+        .top_info{}
+        .chart_info{width:840px;display: flex;justify-content: space-between;margin-top: 40px;}
+        .chart_info_item{width:400px;height:80px;border:2px solid rgba(255,255,255,0.2);
+            display: flex;align-items: center}
+        .chart_info_img{padding:0 30px;}
+        .chart_info_name{font-size:24px;color:rgba(255,255,255,0.7);margin-right: 50px;}
+        .chart_info_num{font-size:36px;color:rgba(255,255,255,1);}
+        .chart_info_num span{font-size:18px;color:rgba(255,255,255,0.6);padding: 0 14px 0 7px;}
+
+        .top_survey{margin-top: 26px;display: flex;justify-content: space-between}
+        .top_survey_item{width: 180px;height: 94px;}
+        .top_survey_name{font-size:24px;color:rgba(255,255,255,0.5);}
+        .top_survey_num{font-size:36px;color:rgba(255,255,255,1);display: flex;justify-content: space-between;align-items: baseline;}
+        .top_survey_num img{width: 48px;height: 30px;}
+
+
+        .bottom{margin-top: 70px;}
     </style>
 </head>
 <body>
     <div class="index">
         <div class="title"><div class="title_box"></div>宏发上域花园A7栋-3F</div>
         <div class="top">
-
+            <div class="top_cont"></div>
+            <div class="top_info">
+                <div class="chart_info">
+                    <div class="chart_info_item">
+                        <img class="chart_info_img" src="../../image/garden_left/icon_water.png"/>
+                        <div class="chart_info_name">用水</div>
+                        <div class="chart_info_num">22,486<span>吨</span></div>
+                        <img src="../../image/common/icon_arrow_up.png"/>
+                    </div>
+                    <div class="chart_info_item">
+                        <img class="chart_info_img" src="../../image/garden_left/icon_electricity.png"/>
+                        <div class="chart_info_name">用电</div>
+                        <div class="chart_info_num">249,503<span>瓦</span></div>
+                        <img src="../../image/common/icon_arrow_down.png"/>
+                    </div>
+                </div>
+            </div>
+            <div class="top_survey">
+                <div class="top_survey_item">
+                    <div class="top_survey_name">烟感</div>
+                    <div class="top_survey_num">1024<img src="../../image/garden_right/sta_normal.png"></div>
+                </div>
+                <div class="top_survey_item">
+                    <div class="top_survey_name">消防栓</div>
+                    <div class="top_survey_num">1024<img src="../../image/garden_right/sta_normal.png"></div>
+                </div>
+                <div class="top_survey_item">
+                    <div class="top_survey_name">巡更设备</div>
+                    <div class="top_survey_num">1051<img src="../../image/garden_right/sta_normal.png"></div>
+                </div>
+                <div class="top_survey_item">
+                    <div class="top_survey_name">门禁</div>
+                    <div class="top_survey_num">1051<img src="../../image/garden_right/sta_normal.png"></div>
+                </div>
+            </div>
         </div>
         <div class="bottom">
             <div class="title"><img src="../../image/garden_left/icon_camera.png">视频监控</div>
