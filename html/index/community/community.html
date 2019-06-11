@@ -4,10 +4,63 @@
     <meta charset="UTF-8">
     <title>社区</title>
     <link rel="stylesheet" href="../../../common/com.css">
+    <style>
+        html{background: #000}
+
+        .top{margin-top: 80px;}
+        .title_flex{display: flex;justify-content: space-between;align-items: center;width: 600px;}
+        .title_num{font-size:60px;color: transparent;letter-spacing: 0;}
+        .title_num span{font-size: 40px;}
+
+        #ringChart{width: 600px;height: 300px;}
+        .center{margin-top: 60px;}
+    </style>
 </head>
 <body>
     <div class="index">
-        <div class="BigTitle"><div class="title_box"></div>宏发上域花园</div>
+        <div class="BigTitle"><div class="title_box"></div>社区概况</div>
+        <div class="top">
+            <div class="title">
+                <img src="../../../image/garden_right/icon_people.png">
+                <div class="title_flex">
+                    <div class="title_name">总面积</div>
+                    <div class="title_num" style="background:-webkit-linear-gradient(top,rgba(41,248,255,1),rgba(41,248,255,0.6));
+                    -webkit-background-clip:text;">163482<span>m²</span></div>
+                </div>
+            </div>
+            <div class="ring">
+                <div id="ringChart"></div>
+            </div>
+        </div>
+        <div class="center">
+            <div class="title">
+                <img src="../../../image/garden_right/icon_people.png">
+                <div class="title_flex">
+                    <div class="title_name">运营/开发</div>
+                    <div class="title_num" style="background:-webkit-linear-gradient(rgba(140, 65, 255, 1), rgba(140, 65, 255, 0.6));
+                    -webkit-background-clip: text;">179<span>栋</span></div>
+                </div>
+            </div>
+        </div>
+        <div class="bottom"></div>
+
     </div>
 </body>
 </html>
+<script src="../../../plugin/jquery-3.1.1.min.js"></script>
+<script src="../../../plugin/echarts.min.js"></script>
+<script src="../../../common/chart.js"></script>
+<script>
+
+
+    Xchart.RingChart({
+        conId:'ringChart',
+        colorArray:['#29F7FE','#37A4FE','#2977FE',],
+        center:['30%','50%'],
+        radius:['50%','70%'],
+        legendRight:40,
+        dataArray:[{value:40, name:'分类名'}, {value:30, name:'分类名2'}, {value:30, name:'分类名3'},]
+    });
+
+
+</script>
