@@ -5,15 +5,42 @@
     <title>社区</title>
     <link rel="stylesheet" href="../../../common/com.css">
     <style>
-        html{background: #000}
+        html{background: #000;width: 700px;}
 
+        .index{}
         .top{margin-top: 80px;}
         .title_flex{display: flex;justify-content: space-between;align-items: center;width: 600px;}
         .title_num{font-size:60px;color: transparent;letter-spacing: 0;}
         .title_num span{font-size: 40px;}
+        .title_cont{width:600px;display: flex;align-items: center;justify-content: space-between}
 
         #ringChart{width: 600px;height: 300px;}
         .center{margin-top: 60px;}
+
+        .chart_list{margin-top: 50px;}
+        .chart_list_item{display: flex;align-items: center;padding-bottom: 10px;}
+        .chart_list_block{width: 12px;height:8px;background:rgba(255,255,255,0.3);margin-right:10px;}
+        .chart_list_name{font-size:24px;width:80px;color:rgba(255,255,255,0.7); }
+        .chart_list_num{font-size:36px;color:rgba(255,255,255,1);margin-right: 20px;width: 100px;}
+        .chart_list_bar{width: 400px;margin:0 25px;display: flex;align-items: center}
+        .chart_list_bar_ac{height:20px;background:-webkit-linear-gradient(left,rgba(20, 130, 255, 0.5),rgba(20, 130, 255, 1))}
+        .chart_list_bar_bg{height:4px;background:rgba(255,255,255,0.1)}
+
+
+        .bottom{margin-top: 60px;}
+        .donuts{position: relative;height: 180px;}
+        .absolute_center{letter-spacing: 0;}
+        .donuts_info_name{font-size:26px;color:rgba(255,255,255,0.5);}
+        .donuts_info_num{font-size:40px;color:rgba(255,255,255,1);}
+
+
+        .tax{width:544px;padding:26px 42px;border:2px solid rgba(255,255,255,0.2);margin-top: 56px;}
+        .tax_item{display: flex;align-items: center;justify-content: space-between}
+        .tax_item_left{display: flex;align-items: center}
+        .tax_item_left img{width: 36px;height: 36px;margin-right: 20px;}
+        .tax_item_name{font-size:36px;color:rgba(255,255,255,1);}
+        .tax_item_num{font-size:60px;color:rgba(255,255,255,1);}
+        .tax_item_num span{font-size:30px;}
     </style>
 </head>
 <body>
@@ -41,8 +68,78 @@
                     -webkit-background-clip: text;">179<span>栋</span></div>
                 </div>
             </div>
+            <div class="chart_list">
+                <div class="chart_list_item">
+                    <div class="chart_list_block"></div>
+                    <div class="chart_list_name">开发中</div>
+                    <div class="chart_list_bar">
+                        <div class="chart_list_bar_ac" style="width: 250px;"></div>
+                        <div class="chart_list_bar_bg" style="width: 250px"></div>
+                    </div>
+                    <div class="chart_list_num">100栋</div>
+                </div>
+                <div class="chart_list_item">
+                    <div class="chart_list_block"></div>
+                    <div class="chart_list_name">运营中</div>
+                    <div class="chart_list_bar">
+                        <div class="chart_list_bar_ac" style="width: 380px;"></div>
+                        <div class="chart_list_bar_bg" style="width: 120px;"></div>
+                    </div>
+                    <div class="chart_list_num">79栋</div>
+                </div>
+
+            </div>
         </div>
-        <div class="bottom"></div>
+        <div class="bottom">
+            <div class="title">
+                <img src="../../../image/garden_right/icon_people.png">
+                <div class="title_cont">
+                    <div class="title_left">
+                        <div class="title_name">企业状况</div>
+                        <div class="title_num"style="background:-webkit-linear-gradient(top,rgba(41,248,255,1),rgba(41,248,255,0.6));
+                    -webkit-background-clip:text;">5298<span>家</span></div>
+                    </div>
+                    <div class="title_right">
+                        <div class="donuts" id="donut">
+                            <svg version="1.1" xmlns="http://www.w3.org/2000/svg" width="180" height="180" viewBox="0 0 360 360">
+                                <path id="circlePath" d="M 180 10 a 170 170 0 0 1 0 340 a 170 170 0 0 1 0 -340 Z" fill="none" stroke="rgba(255,255,255,0.6)" stroke-width="16" stroke-linecap="round" stroke-dasharray="1068.141484">
+                                    <animate id="circleAnimate" attributeName="stroke-dashoffset" from="1068.141484" to="0" dur="3s" repeatDur="" fill="freeze" begin="0" restart="whenNotActive"></animate>
+                                </path>
+                                <path id="circlePath2" d="M 180 50 a 130 130 0 0 1 0 260 a 130 130 0 0 1 0 -260 Z" fill="none" stroke="rgba(20, 130, 255, 1)" stroke-width="16" stroke-linecap="round" stroke-dasharray="816.8140">
+                                    <animate id="circleAnimate2" attributeName="stroke-dashoffset" from="816.8140" to="0" dur="3s" repeatDur="" fill="freeze" begin="0" restart="whenNotActive"></animate>
+                                </path>
+                            </svg>
+                            <div class="absolute_center">
+                                <div class="donuts_info_name">入住率</div>
+                                <div class="donuts_info_num">89%</div>
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+
+            </div>
+            <div class="tax">
+                <div class="tax_item">
+                    <div class="tax_item_left">
+                        <img src="">
+                        <div class="tax_item_name">年税收总额</div>
+                    </div>
+                    <div class="tax_item_right">
+                        <div class="tax_item_num">11.91<span>亿</span></div>
+                    </div>
+                </div>
+                <div class="tax_item">
+                    <div class="tax_item_left">
+                        <img src="">
+                        <div class="tax_item_name">年均增长</div>
+                    </div>
+                    <div class="tax_item_right">
+                        <div class="tax_item_num">56<span>%</span></div>
+                    </div>
+                </div>
+            </div>
+        </div>
 
     </div>
 </body>
@@ -51,7 +148,18 @@
 <script src="../../../plugin/echarts.min.js"></script>
 <script src="../../../common/chart.js"></script>
 <script>
+    let $circleAnimate = $('.donuts').find('#circleAnimate');
+    let $circleAnimate2 = $('.donuts').find('#circleAnimate2');
+    let per = 78.6/100;
+    let per2 = 48.1/100;
+    let durTime = 3 * per;
+    let durTime2 = 3 * per2;
 
+    $circleAnimate[0].setAttribute('repeatDur', durTime + 's');
+    $circleAnimate2[0].setAttribute('repeatDur', durTime2 + 's');
+
+    $circleAnimate[0].beginElement();
+    $circleAnimate2[0].beginElement();
 
     Xchart.RingChart({
         conId:'ringChart',
