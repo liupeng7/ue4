@@ -5,7 +5,7 @@
     <title>主页-右边</title>
     <link rel="stylesheet" href="../common/com.css">
     <style>
-        body{background: #000;width: 1200px;}
+        html{width: 1200px;height: 1540px;}
         .monitor_title{font-size:36px;letter-spacing: 10px;color:rgba(255,255,255,1);display: flex;align-items: center;}
         .monitor_title img{margin-right: 20px;  }
 
@@ -234,6 +234,8 @@
 <script src="../plugin/echarts.min.js"></script>
 <script src="../common/com.js"></script>
 <script>
+
+    narrow();
     runAnimate(52,$('#donut1'));
     runAnimate(24,$('#donut2'));
     runAnimate(32,$('#donut3'));

@@ -17,11 +17,12 @@ function runAnimate(percent,dom){
 
 
 function narrow(){
-    let width = $('html').width()*0.25;
-    let height = $('html').height()*0.25;
+    let scale = 1/3;
+    let width = $('html').width()*scale;
+    let height = $('html').height()*scale;
     $('html').css({
         position: 'absolute',
-        transform:'scale(0.5)',
+        transform:'scale('+scale+')',
         left:-width,
         top:-height
     });
