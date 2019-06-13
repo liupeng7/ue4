@@ -327,7 +327,6 @@
             conId:'', //内容id
 
             showTooltip:true,
-
             showLegend:true,
             itemGap:24,
             legendRight:'center',
@@ -343,6 +342,11 @@
             labelFont:28,
             labelShow:true,
             labelLineShow:false,
+            labelShowCustom:false,
+            labelShowCustomF:'',
+            labelLineLength:40,
+            labelLineLength2:30,
+
 
             dataArray:[] //数据
 
@@ -393,9 +397,20 @@
                             fontSize:options.labelFont,
                             color:'rgba(255,255,255,0.6)',
                             formatter:function (pp) {
-                                let res =pp.value+'%';
-                                return res
+                                if(options.labelShowCustom){
+                                    return pp.name+'\n'+'{font|'+pp.value+'}'
+
+                                }else{
+                                    return pp.value+'%';
+                                }
                             },
+                            rich:{
+                                font:{
+                                    fontSize:36,
+                                    color:'#fff',
+                                    padding:[0,0,10,0]
+                                }
+                            }
                         },
                         emphasis: {
                             show: true,
@@ -404,6 +419,8 @@
                     labelLine: {
                         normal: {
                             show:  options.labelLineShow,
+                            length:options.labelLineLength,
+                            length2:options.labelLineLength2,
                         }
                     },
                     itemStyle:{

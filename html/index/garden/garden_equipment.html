@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>设备</title>
+    <link rel="stylesheet" href="../../../common/com.css">
+    <style>
+        html{background: #000}
+
+        .info{display: flex;flex-wrap: wrap;width: 600px;}
+        .info_item{display: flex;align-items: center;width: 300px;margin-top: 80px;}
+        .info_right{margin-left: 28px;}
+        .info_name{color:rgba(255,255,255,0.5);font-size:30px;}
+        .info_num{font-size:50px;color:rgba(255,255,255,1);}
+
+
+        .center{width: 640px;height: 440px;background: url("../../../image/garden_right/circle_bg.png") no-repeat 50% 50%;
+            margin-top: 160px;position: relative}
+        #ringChart{width: 640px;height: 440px;}
+        .absolute_center{font-size: 36px;color: #fff;width: 160px;text-align: center}
+    </style>
+</head>
+<body>
+<div class="index">
+    <div class="top">
+        <div class="info">
+            <div class="info_item">
+                <img src="../../../image/common/icon_eq_1.png" width="110" height="110">
+                <div class="info_right">
+                    <div class="info_name">烟感</div>
+                    <div class="info_num">1024</div>
+                    <img class="info_sta" src="../../../image/garden_right/sta_normal.png" width="60" height="36">
+                </div>
+            </div>
+            <div class="info_item">
+                <img src="../../../image/common/icon_eq_2.png" width="110" height="110">
+                <div class="info_right">
+                    <div class="info_name">消防栓</div>
+                    <div class="info_num">1105</div>
+                    <img class="info_sta" src="../../../image/garden_right/sta_normal.png" width="60" height="36">
+                </div>
+            </div>
+            <div class="info_item">
+                <img src="../../../image/common/icon_eq_3.png" width="110" height="110">
+                <div class="info_right">
+                    <div class="info_name">巡更设备</div>
+                    <div class="info_num">105</div>
+                    <img class="info_sta" src="../../../image/garden_right/sta_normal.png" width="60" height="36">
+                </div>
+            </div>
+            <div class="info_item">
+                <img src="../../../image/common/icon_eq_4.png" width="110" height="110">
+                <div class="info_right">
+                    <div class="info_name">门禁</div>
+                    <div class="info_num">15</div>
+                    <img class="info_sta" src="../../../image/garden_right/sta_normal.png" width="60" height="36">
+                </div>
+            </div>
+        </div>
+
+    </div>
+    <div class="center">
+        <div id="ringChart"></div>
+        <div class="absolute_center">设备分类占比</div>
+    </div>
+</div>
+</body>
+</html>
+
+
+<script src="../../../plugin/jquery-3.1.1.min.js"></script>
+<script src="../../../plugin/echarts.min.js"></script>
+<script src="../../../common/chart.js"></script>
+
+<script>
+
+
+    Xchart.RingChart({
+        conId:'ringChart',
+        showLegend:false,
+        roseType:'radius',
+        colorArray:['#29F7FE','#37A4FE','#2977FE',],
+        center:['50%','50%'],
+        radius:['50%','70%'],
+        legendRight:40,
+        labelLineShow:true,
+        labelShowCustom:true,
+        labelFont:28,
+        dataArray:[{value:46, name:'分类名'}, {value:29, name:'分类名2'}, {value:14.5, name:'分类名3'},{value:9.8, name:'分类名4'},]
+    });
+
+
+</script>
