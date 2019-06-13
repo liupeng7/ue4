@@ -5,10 +5,16 @@
     <title>宏发上域-右边</title>
     <link rel="stylesheet" href="../../../common/com.css">
     <style>
-        html{width: 1200px;height: 1540px;}
+        html{width: 1200px;height: 1540px;background:-webkit-linear-gradient(right,rgba(0,0,0,0.75),rgba(0,0,0,0)) no-repeat}
 
         .monitor_chart{margin-top: 50px;display: flex}
         .monitor_left{display: flex;justify-content: space-between;width: 640px;}
+        .donut{width: 120px;height: 120px;position: relative}
+        .donut_num{position: absolute; top:50%;left: 50%;transform: translate(-50%,-50%); width: 60px;height: 60px;
+            font-size:36px;color:rgba(255,255,255,1);border: 10px solid rgba(255,255,255,0.2);border-radius: 50%;
+            display: flex;align-items: center;justify-content: center}
+        .donut_name{color:rgba(255,255,255,0.6);font-size:24px;margin-top: 17px}
+
         .monitor_center{display: flex;flex-direction: column;margin-left: 80px;}
         .monitor_center_item{width:300px;display: flex;align-items: center;justify-content:space-between;margin-bottom: 20px}
         .monitor_center_name{font-size:20px;color:rgba(255,255,255,0.6);display: flex;align-items: center}
@@ -17,11 +23,7 @@
         .monitor_center_block{width:6px;height:20px;margin-right: 13px;}
         .monitor_right{margin-left: 40px;}
 
-        .donut{width: 120px;height: 120px;position: relative}
-        .donut_num{position: absolute; top:50%;left: 50%;transform: translate(-50%,-50%); width: 60px;height: 60px;
-            font-size:36px;color:rgba(255,255,255,1);border: 10px solid rgba(255,255,255,0.2);border-radius: 50%;
-            display: flex;align-items: center;justify-content: center}
-        .donut_name{color:rgba(255,255,255,0.6);font-size:24px;margin-top: 17px}
+
 
 
         .monitor_title2{margin-top:70px;display: flex;align-items: center}
@@ -41,8 +43,7 @@
 
 
         .monitor_ring{position: relative;margin-top:60px}
-        .monitor_ring_name,.monitor_ring_bg{position: absolute;left: 50%;top:50%;transform: translate(-50%,-50%);
-        font-size: 36px;color: #fff}
+        .monitor_ring_name,.monitor_ring_bg{position: absolute;left: 50%;top:50%;transform: translate(-50%,-50%);font-size: 36px;color: #fff}
 
         #ringChart{width: 1200px;height: 440px;}
 

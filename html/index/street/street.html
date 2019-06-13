@@ -3,16 +3,77 @@
 <head>
     <meta charset="UTF-8">
     <title>街道地图</title>
+    <link rel="stylesheet" href="../../../common/com.css">
+    <style>
+        html{width: 640px;height: 1300px;background:-webkit-linear-gradient(left,rgba(0,0,0,0.75),rgba(0,0,0,0)) no-repeat}
+
+        .info{display: flex;align-items: center;margin-bottom: 90px;}
+        .info_right{margin-left: 40px;}
+        .info_name{font-size:30px;font-weight:bold;color:rgba(255,255,255,0.6);}
+        .info_num{font-size:50px;color: #fff;}
+        .info_num span{font-size: 30px;color: rgba(198, 198, 198, 1);}
+
+        #ringChart{width: 640px;height:360px;}
+    </style>
 </head>
 <body>
     <div class="index">
         <div class="top">
+            <div class="info">
+                <img class="info_left" src="../../../image/street/icon_b_1.png" >
+                <div class="info_right">
+                    <div class="info_name">区人口</div>
+                    <div class="info_num">13<span>万人</span></div>
+                </div>
+            </div>
+            <div class="info">
+                <img class="info_left" src="../../../image/street/icon_b_2.png" >
+                <div class="info_right">
+                    <div class="info_name">街道数量</div>
+                    <div class="info_num">1346<span>条街道</span></div>
+                </div>
+            </div>
+            <div class="info">
+                <img class="info_left" src="../../../image/street/icon_b_3.png" >
+                <div class="info_right">
+                    <div class="info_name">区面积</div>
+                    <div class="info_num">0.047 <span>万m²</span></div>
+                </div>
+            </div>
+            <div class="info">
+                <img class="info_left" src="../../../image/street/icon_b_4.png" >
+                <div class="info_right">
+                    <div class="info_name">生产总值</div>
+                    <div class="info_num">12586.8<span> 亿元 </span></div>
+                </div>
+            </div>
 
         </div>
         <div class="bottom">
-
+            <div class="title"> <img src="../../../image/garden_right/icon_people.png">产业分类</div>
+            <div id="ringChart"></div>
         </div>
     </div>
 
 </body>
 </html>
+
+<script src="../../../plugin/jquery-3.1.1.min.js"></script>
+<script src="../../../plugin/echarts.min.js"></script>
+<script src="../../../common/chart.js"></script>
+
+<script>
+
+
+    Xchart.RingChart({
+        conId:'ringChart',
+        showLegend:false,
+        colorArray:['#29F7FE','#37A4FE','#2977FE',],
+        center:['50%','50%'],
+        radius:['60%','80%'],
+        legendRight:40,
+        dataArray:[{value:40, name:'分类名'}, {value:30, name:'分类名2'}, {value:30, name:'分类名3'},]
+    });
+
+
+</script>

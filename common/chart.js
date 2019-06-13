@@ -426,7 +426,7 @@
                     itemStyle:{
                         normal:{
                             borderColor:'#061d2d',
-                            borderWidth:2
+                            borderWidth:0
                         }
                     },
                     data:options.dataArray
