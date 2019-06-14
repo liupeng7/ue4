@@ -6,17 +6,18 @@
     <link rel="stylesheet" href="../common/com.css">
     <style>
         html{width: 5760px;height: 1620px;background: rgba(0,0,0,0.5);display: none}
-        .index{width: 440px;height: 160px;background:rgba(0,0,0,0.75);padding-top: 30px;padding-bottom: 20px;
-            border:2px solid;border-image:linear-gradient(0deg, rgba(91, 108, 122, 0.75), rgba(225, 254, 255, 0.75)) 2 2;
-            box-shadow:0px 0px 29px 0px rgba(0, 0, 0, 0.57), 0px 0px 51px 0px rgba(0, 0, 0, 0.5);border-radius:10px;
-            position: absolute;left:50%;top:50%;transform: translate(-50%,-50%)}
-        .index_box{margin-top:30px;display: flex;justify-content: center}
-        .index_top{width:400px;height:43px;font-size:30px;font-weight:bold;color:rgba(255,255,255,1);margin: 0 auto;text-align: center}
-        .index_input{border-bottom:1px solid rgb(77,80,85);    line-height: 50px;}
-        .index_input input{border:none;background: none;font-size: 20px;outline:none;width: 200px;}
-        .index_input .xb_icon{font-size: 24px;margin-right:20px}
-        .index_btn{cursor:pointer;width: 80px;height: 50px;border-radius:10px;background: rgb(11,144,206);
-            text-align:center;font-size: 26px;line-height: 50px;margin-left: 26px}
+        .index{position: absolute;left:50%;top:50%;transform: translate(-50%,-50%)}
+        .index_top{font-size:60px;font-weight:bold;color:rgba(255,255,255,1);}
+
+        .index_box{width:480px;height:400px;margin:62px auto 0; border-radius:10px;background:rgba(0,0,0,0.75);
+            border:2px solid rgba(255,255,255,0.75);position: relative;}
+        .index_input{color:rgba(254,255,255,0.6);margin-top: 77px;}
+        .index_input_item{width:360px;height:70px;background:rgba(4,26,47,0.75);border:1px solid rgba(255,255,255,0.5);
+            border-radius:10px;display: flex;align-items: center;margin: 40px auto 0;}
+        .index_input_item img {margin: 0 28px 0 25px;width: 30px;height: 30px}
+        .index_input_item input{background: none;border: none;font-size:30px;width: 240px;padding-left: 30px;
+            border-left: 1px solid rgba(255,255,255,0.5);color: #fff;}
+        .index_btn{cursor:pointer;position: absolute;bottom:0;left:50%;transform: translate(-50%,50%)}
     </style>
 
 </head>
@@ -25,10 +26,16 @@
         <div class="index_top">公明街道大屏可视化平台</div>
         <div class="index_box" >
             <div class="index_input">
-                <i class="xb_icon lock-alt-re input_icon"></i>
-                <input type="password" id="password" placeholder="请输入密码" value="">
+                <div class="index_input_item">
+                    <img src="../image/login_account.png" >
+                    <input placeholder="账户名" value="">
+                </div>
+                <div class="index_input_item">
+                    <img src="../image/login_password.png" >
+                    <input type="password" id="password" placeholder="请输入密码" value="">
+                </div>
             </div>
-            <div class="index_btn" onclick="login()">登陆</div>
+            <img class="index_btn" onclick="login()" src="../image/login_enter.png">
         </div>
 
     </div>

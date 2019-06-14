@@ -1,11 +1,12 @@
 
 
-*{padding:0;margin: 0;font-family:SourceHanSansCN-Regular;overflow: hidden;
+*{padding:0;margin: 0;font-family:SourceHanSansCN-Regular;
     -webkit-user-select: none;
     -moz-user-select: none;
     -ms-user-select: none;
     user-select: none;}
 div:focus{outline:none}
+input{outline:none;}
 .BigTitle{font-size: 72px;letter-spacing: 6px;color:rgba(255,255,255,1);display: flex;align-items: center}
 .title{font-size:36px;letter-spacing: 10px;color:rgba(255,255,255,1);display: flex;align-items: center;}
 .title_box{width:20px;height:80px;background:rgba(255,255,255,1);opacity:0.2;margin-right: 10px;}

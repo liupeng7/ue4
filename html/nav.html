@@ -52,10 +52,16 @@
 <script src="../plugin/jquery-3.1.1.min.js"></script>
 <script src="../common/com.js"></script>
 <script>
-    narrow();
+    window.onload = function () {
+        setTimeout(function () {
+            // $('html').show();
+            narrow();
+        },200)
+
+    };
+
     $('.nav_item').click(function () {
         let index  = $(this).index();
-        console.log(index)
         $('.nav_item').removeClass('ac');
         $(this).addClass('ac');
         switch (index) {
