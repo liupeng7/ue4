@@ -5,8 +5,9 @@
     <title>街道地图</title>
     <link rel="stylesheet" href="../../../common/com.css">
     <style>
-        html{width: 640px;height: 1300px;background:-webkit-linear-gradient(left,rgba(0,0,0,0.75),rgba(0,0,0,0)) no-repeat}
+        html{width: 1200px;height: 1600px;background:-webkit-linear-gradient(left,rgba(0,0,0,0.75),rgba(0,0,0,0)) no-repeat}
 
+        .index{padding-left: 40px;margin-top: 140px;}
         .info{display: flex;align-items: center;margin-bottom: 90px;}
         .info_right{margin-left: 40px;}
         .info_name{font-size:30px;font-weight:bold;color:rgba(255,255,255,0.6);}
@@ -61,10 +62,10 @@
 <script src="../../../plugin/jquery-3.1.1.min.js"></script>
 <script src="../../../plugin/echarts.min.js"></script>
 <script src="../../../common/chart.js"></script>
-
+<script src="../../../common/com.js"></script>
 <script>
 
-
+    narrow();
     Xchart.RingChart({
         conId:'ringChart',
         showLegend:false,

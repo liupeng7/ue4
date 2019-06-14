@@ -5,16 +5,16 @@
     <title>社区</title>
     <link rel="stylesheet" href="../../../common/com.css">
     <style>
-        html{background: #000;width: 700px;}
+        html{width: 1200px;height: 1620px;background:-webkit-linear-gradient(left,rgba(0,0,0,0.75),rgba(0,0,0,0)) no-repeat}
 
-        .index{}
+        .index{width: 640px;padding-left: 40px;margin-top: 140px;}
         .top{margin-top: 80px;}
         .title_flex{display: flex;justify-content: space-between;align-items: center;width: 600px;}
         .title_num{font-size:60px;color: transparent;letter-spacing: 0;}
         .title_num span{font-size: 40px;}
         .title_cont{width:600px;display: flex;align-items: center;justify-content: space-between}
 
-        #ringChart{width: 600px;height: 300px;}
+        #ringChart{width: 640px;height: 300px;}
         .center{margin-top: 60px;}
 
         .chart_list{margin-top: 50px;}
@@ -122,7 +122,7 @@
             <div class="tax">
                 <div class="tax_item">
                     <div class="tax_item_left">
-                        <img src="">
+                        <img src="../../../image/common/icon_s_3.png">
                         <div class="tax_item_name">年税收总额</div>
                     </div>
                     <div class="tax_item_right">
@@ -131,7 +131,7 @@
                 </div>
                 <div class="tax_item">
                     <div class="tax_item_left">
-                        <img src="">
+                        <img src="../../../image/common/icon_s_4.png">
                         <div class="tax_item_name">年均增长</div>
                     </div>
                     <div class="tax_item_right">
@@ -147,7 +147,10 @@
 <script src="../../../plugin/jquery-3.1.1.min.js"></script>
 <script src="../../../plugin/echarts.min.js"></script>
 <script src="../../../common/chart.js"></script>
+<script src="../../../common/com.js"></script>
 <script>
+    narrow();
+
     let $circleAnimate = $('.donuts').find('#circleAnimate');
     let $circleAnimate2 = $('.donuts').find('#circleAnimate2');
     let per = 78.6/100;
@@ -164,7 +167,7 @@
     Xchart.RingChart({
         conId:'ringChart',
         colorArray:['#29F7FE','#37A4FE','#2977FE',],
-        center:['30%','50%'],
+        center:['35%','50%'],
         radius:['50%','70%'],
         legendRight:40,
         dataArray:[{value:40, name:'分类名'}, {value:30, name:'分类名2'}, {value:30, name:'分类名3'},]
