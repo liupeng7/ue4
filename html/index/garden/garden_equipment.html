@@ -5,7 +5,8 @@
     <title>设备</title>
     <link rel="stylesheet" href="../../../common/com.css">
     <style>
-        html{background: #000}
+        html{width: 1200px;height: 1620px;background:-webkit-linear-gradient(right,rgba(0,0,0,0.75),rgba(0,0,0,0)) no-repeat}
+        .index{width: 640px;margin-right: 40px;margin-top: 120px;float: right}
 
         .info{display: flex;flex-wrap: wrap;width: 600px;}
         .info_item{display: flex;align-items: center;width: 300px;margin-top: 80px;}
@@ -15,8 +16,8 @@
 
 
         .center{width: 640px;height: 440px;background: url("../../../image/garden_right/circle_bg.png") no-repeat 50% 50%;
-            margin-top: 160px;position: relative}
-        #ringChart{width: 640px;height: 440px;}
+            margin-top: 200px;position: relative}
+        #ringChart{width: 640px;height: 500px;}
         .absolute_center{font-size: 36px;color: #fff;width: 160px;text-align: center}
     </style>
 </head>
@@ -71,10 +72,10 @@
 <script src="../../../plugin/jquery-3.1.1.min.js"></script>
 <script src="../../../plugin/echarts.min.js"></script>
 <script src="../../../common/chart.js"></script>
-
+<script src="../../../common/com.js"></script>
 <script>
 
-
+    narrow()
     Xchart.RingChart({
         conId:'ringChart',
         showLegend:false,

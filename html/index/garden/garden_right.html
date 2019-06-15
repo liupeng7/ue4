@@ -7,7 +7,7 @@
     <style>
         html{width: 1200px;height: 1620px;background:-webkit-linear-gradient(right,rgba(0,0,0,0.75),rgba(0,0,0,0)) no-repeat}
 
-        .index{margin-top: 120px;padding-right: 40px;}
+        .index{margin-top: 120px;margin-right: 40px;}
         .monitor_chart{margin-top: 50px;display: flex}
         .monitor_left{display: flex;justify-content: space-between;width: 640px;}
         .donut{width: 120px;height: 120px;position: relative}
@@ -49,7 +49,7 @@
 
         .monitor_ring{position: relative;margin-top:40px}
         .monitor_ring_name,.monitor_ring_bg{position: absolute;left: 50%;top:50%;transform: translate(-50%,-50%);font-size: 36px;color: #fff}
-        #ringChart{width: 1200px;height: 440px;}
+        #ringChart{width: 1160px;height: 440px;}
 
 
         .patrol_cont{display: flex;justify-content: space-between;margin-top: 30px;}
@@ -70,6 +70,8 @@
         .patrol_record_time{font-size:24px;color:rgba(255,255,255,1);line-height:40px;
             border-bottom: 1px solid rgba(255,255,255,0.3)}
         .patrol_record_cont{margin-top: 20px;display: flex}
+        .patrol_record_cont_left{position: relative}
+        .patrol_record_peo{position: absolute;top:0;left: 0;z-index: -1}
         .patrol_record_info{margin-left: 20px;}
         .patrol_record_info_item{font-size:24px;color:rgba(255,255,255,0.4);line-height: 56px;}
         .patrol_record_info_item span{font-size:32px;color:rgba(255,255,255,1);margin-left: 20px;}
@@ -236,7 +238,10 @@
                 <div class="patrol_record">
                     <div class="patrol_record_time">09:30:48  巡更已打卡</div>
                     <div class="patrol_record_cont">
-                        <img class="patrol_record_pic" src="../../../image/garden_right/avatar_deco.png">
+                        <div class="patrol_record_cont_left">
+                            <img class="patrol_record_pic" src="../../../image/garden_right/avatar_deco.png">
+                            <img class="patrol_record_peo" src="../../../image/garden_right/pic_avatar.png" width="160" height="180" >
+                        </div>
                         <div class="patrol_record_info">
                             <div class="patrol_record_info_item">姓名<span>张三四</span></div>
                             <div class="patrol_record_info_item">电话<span>188 8888 8888</span></div>

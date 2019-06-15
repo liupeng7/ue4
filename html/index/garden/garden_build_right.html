@@ -5,8 +5,9 @@
     <title>宏发上域-楼栋-右边</title>
     <link rel="stylesheet" href="../../../common/com.css">
     <style>
-        html{background: #000;}
+        html{width: 1200px;height: 1620px;background:-webkit-linear-gradient(right,rgba(0,0,0,0.75),rgba(0,0,0,0)) no-repeat}
 
+        .index{float: right;margin-right: 40px;margin-top: 60px;}
         .info{display: flex;flex-wrap: wrap;width: 600px;}
         .info_item{display: flex;align-items: center;width: 300px;margin-top: 80px;}
         .info_right{margin-left: 28px;}
@@ -72,9 +73,10 @@
 <script src="../../../plugin/jquery-3.1.1.min.js"></script>
 <script src="../../../plugin/echarts.min.js"></script>
 <script src="../../../common/chart.js"></script>
-
+<script src="../../../common/com.js"></script>
 <script>
 
+    narrow();
 
     Xchart.RingChart({
         conId:'ringChart',

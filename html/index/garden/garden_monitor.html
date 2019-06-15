@@ -5,9 +5,9 @@
     <title>监控</title>
     <link rel="stylesheet" href="../../../common/com.css">
     <style>
-        html{width: 640px;height: 1300px;background:-webkit-linear-gradient(right,rgba(0,0,0,0.75),rgba(0,0,0,0)) no-repeat}
+        html{width: 1200px;height: 1620px;background:-webkit-linear-gradient(right,rgba(0,0,0,0.75),rgba(0,0,0,0)) no-repeat}
 
-
+        .index{width: 640px;margin-right: 40px;margin-top: 120px;float: right}
         .monitor{display: flex;margin-top: 50px;}
         .monitor_center{display: flex;flex-direction: column;margin-left: 80px;}
         .monitor_center_item{width:300px;display: flex;align-items: center;justify-content:space-between;margin-bottom: 20px}
@@ -145,6 +145,7 @@
 <script src="../../../common/com.js"></script>
 <script>
 
+    narrow()
     runAnimate(52,$('#donut1'));
     runAnimate(24,$('#donut2'));
     runAnimate(32,$('#donut3'));

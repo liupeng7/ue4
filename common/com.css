@@ -21,8 +21,8 @@ input{outline:none;}
 .video_item{width: 418px;}
 .video_item_title{font-size:18px;color:rgba(255,255,255,0.6);display: flex;align-items: center}
 .video_item_block{width:12px;height:6px;background:rgba(60,250,120,1);margin-right: 8px;}
-.video_item_cont{background: url("../image/garden_left/video_bg.png") no-repeat;width: 380px;height: 240px}
-.video_item_cont video{margin-top: 20px;margin-left: 10px;background: #000}
+.video_item_cont{background: url("../image/garden_left/video_bg.png") no-repeat;width: 380px;height: 240px;position: relative}
+.video_item_cont video{position: absolute;top:22px;left: 12px;width: 357px;height: 197px;}
 
 /*滚动条样式*/
 .video_list::-webkit-scrollbar{width: 2px;height: 240px;position: absolute;}

@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>楼层-右边</title>
+    <link rel="stylesheet" href="../../../common/com.css">
+    <style>
+        html{width: 1200px;height: 1620px;background:-webkit-linear-gradient(right,rgba(0,0,0,0.75),rgba(0,0,0,0)) no-repeat}
+
+        .index{float: right;margin-right: 40px;margin-top: 120px;text-align: center}
+
+        .list{color: #fff;padding: 40px 0}
+        .list_title{font-size:50px;margin-bottom: 36px;}
+        .list_item{font-size: 44px;width:104px;height:104px;border:1px solid rgba(255,255,255,0.3);margin:0 auto 36px;
+            border-radius:50%;text-align: center;line-height: 104px;cursor: pointer}
+        .list_item.ac{width:134px;height:134px;border:6px solid rgba(255,188,71,1);line-height: 134px;}
+    </style>
+</head>
+<body>
+    <div class="index">
+        <img src="../../../image/common/arrow_up.png">
+        <div class="list">
+            <div class="list_title">A7栋</div>
+            <div class="list_item">1F</div>
+            <div class="list_item">2F</div>
+            <div class="list_item ac">3F</div>
+            <div class="list_item">4F</div>
+            <div class="list_item">5F</div>
+            <div class="list_item">6F</div>
+            <div class="list_item">7F</div>
+            <div class="list_item">8F</div>
+        </div>
+        <img src="../../../image/common/arrow_down.png">
+    </div>
+</body>
+</html>
+
+<script src="../../../plugin/jquery-3.1.1.min.js"></script>
+<script src="../../../common/com.js"></script>
+
+<script>
+
+$('.list_item').click(function () {
+    $('.list_item').removeClass('ac');
+    $(this).addClass('ac')
+});
+narrow()
+
+</script>
