@@ -1,6 +1,9 @@
 
-
-*{padding:0;margin: 0;font-family:SourceHanSansCN-Regular;
+@font-face{
+    font-family:Electrolize-Regular ;
+    src:url("../common/ELECTROLIZE-REGULAR.PFB.TTF");
+}
+*{padding:0;margin: 0;font-family:Electrolize-Regular;
     -webkit-user-select: none;
     -moz-user-select: none;
     -ms-user-select: none;

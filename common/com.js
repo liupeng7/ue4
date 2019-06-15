@@ -17,6 +17,9 @@ function runAnimate(percent,dom){
 
 
 function narrow(){
+    if(window.innerWidth<1000||window.innerHeight<1200){
+
+    }
     let scale = 1/3;
     let width = $('html').width()*scale;
     let height = $('html').height()*scale;
