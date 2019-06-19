@@ -1,11 +1,11 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="us">
 <head>
     <meta charset="UTF-8">
     <title>登陆</title>
     <link rel="stylesheet" href="../common/com.css">
     <style>
-        html{width: 5760px;height: 1620px;background: rgba(0,0,0,0.5);display: none}
+        html{width: 5760px;height: 1620px;background: rgba(0,0,0,0.5);}
         .index{position: absolute;left:50%;top:50%;transform: translate(-50%,-50%)}
         .index_top{font-size:60px;font-weight:bold;color:rgba(255,255,255,1);}
 
@@ -35,15 +35,16 @@
                     <input type="password" id="password" placeholder="请输入密码" value="">
                 </div>
             </div>
-            <img class="index_btn" onclick="login()" src="../image/login_enter.png">
+            <img class="index_btn" id="buttonMenu" onclick="triggerUE4EventBlank('login')" src="../image/login_enter.png">
         </div>
 
     </div>
 
 </body>
 </html>
-<script src="../plugin/jquery-3.1.1.min.js"></script>
 <script src="../common/com.js"></script>
+<script src="../plugin/jquery-3.1.1.min.js"></script>
+<script src="../plugin/HTMLMenuUE4Connector.js"></script>
 <script>
 
     window.onload = function () {
@@ -52,10 +53,13 @@
             narrow()
         },200)
 
+
     };
 
-    function login() {
-        window.ue.GM.weblogin();
-    }
+
+    // function login() {
+    //     alert('111')
+    //     // window.ue.GM.weblogin();
+    // }
 
 </script>
