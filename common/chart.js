@@ -469,15 +469,28 @@
     function LineChart(options) {
         var defaultOption={
             conId:'',
-            title:'',
             fontSize:18,
+
+            colorArray:['#01dafe','#58e569','#f0a54a'],
+
+            showLegend:false,
             legendSize:12,
+            legendLeft:0,
+            legendTop:0,
             itemWidth:10,
             itemHeight:10,
-            isArea:false,
+            itemGap:10,
+
+            gridBottom:'10%',
+            gridLeft:'10%',
+            gridRight:'10%',
+            gridTop:'10%',
+
+            XaxisLabelFontSize:18,
+            boundaryGap:false,
+
             showY:false,
-            showLegend:false,
-            splitLine:true,
+            splitLine:false,
             axisLabel:true,
             markLine:true,
             markLine_custom:{},
@@ -485,26 +498,26 @@
             smooth:true,
             lineWidth:2,
             lineColor:'',
-            itemGap:10,
             max:null,
             showSymbol:true,
-            legendBottom:0,
+            areaStyleShow:true,
+            areaStyleColor:new echarts.graphic.LinearGradient(0, 0, 0, 1,
+                [{offset: 0, color: 'rgba(64,216,84,1)'},
+                    {offset: 1, color: 'rgba(79,242,240,0.3)'}]),
             txtColor:'#fff',
             markLinecolor:'',
-            gridBottom:0,
-            gridLeft:'-2%',
-            gridRight:'6%',
-            gridTop:'10%',
-            txtWidth:'100px',
-            colorArray:['#01dafe','#58e569','#f0a54a'],
-            dataArray:[],
+
+
+            dataArray:[],//数据
         };
         options = $.extend(false,defaultOption,options);
-        var lineData=[];
-        var xAxisData='';
-        let legendName=[];
-
+        let seriesData = [];
+        let xAxisData = [];
         let markPoint='',markLine='';
+        for(let i=0;i<options.dataArray.length;i++){
+            seriesData.push(options.dataArray[i].value);
+            xAxisData.push(options.dataArray[i].name)
+        }
         if(options.markPoint){
             markPoint={
                 data: [
@@ -538,62 +551,13 @@
         if(options.markLine_custom){
             markLine=options.markLine_custom
         }
-        for(var i=0;i<options.dataArray.length;i++){
-            var obj=options.dataArray[i];
-            legendName.push(obj.lineName);
-            xAxisData = obj.name;
-            if(options.isArea){
-                lineData.push({
-                    name:obj.lineName,
-                    type: 'line',
-                    smooth: options.smooth,
-                    data: obj.value,
-                    markPoint:markPoint,
-                    markLine:markLine,
-                    showSymbol:options.showSymbol,
-                    lineStyle:{
-                        normal:{
-                            width:options.lineWidth,
-                            color:options.lineColor,
-                        }
-                    },
-                    areaStyle: {
-                        normal: {
-                            color: new echarts.graphic.LinearGradient(0, 0, 0, 1, [{
-                                offset: 0,
-                                color: 'rgba(64,216,84,1)'
-                            }, {
-                                offset: 1,
-                                color: 'rgba(79,242,240,0.3)'
-                            }])
-                        }
-                    },
-                    symbolSize: 15,
-                })
-            }else{
-                lineData.push({
-                    name:obj.lineName,
-                    type: 'line',
-                    smooth: options.smooth,
-                    showSymbol:options.showSymbol,
-                    lineStyle:{
-                        normal:{
-                            width:options.lineWidth,
-                        }
-                    },
-                    data: obj.value,
-                    markPoint:markPoint ,
-                    markLine:markLine ,
-                    symbolSize: 15,
-                });
-            }
-
-        }
         var option = {
+            color:options.colorArray,
             legend:{
                 show:options.showLegend,
+                left:options.legendLeft,
+                top:options.legendTop,
                 orient:'horizontal',
-                data:legendName,
                 icon:'rect',
                 itemWidth:options.itemWidth,
                 itemHeight:options.itemHeight,
@@ -602,32 +566,18 @@
                     fontSize:options.legendSize,
                 },
                 itemGap:options.itemGap,
-                left: 'right',
-                top:'0'
+
             },
             tooltip: {
                 trigger:'axis',
-                formatter:function(params){
-                    var toolTip = '';
-                    for(var i=0;i<params.length;i++){
 
-                        if(options.isshowhover_perc == true){
-                            toolTip += params[i].seriesName + ':' +params[i].value +'%' + '<br>';
-                        }else{
-                            toolTip += params[i].seriesName + ':' +params[i].value + '<br>';
-                        }
-                    }
-                    return params[0].name + '</br> '+toolTip;
-                }
             },
             grid: {
                 left: options.gridLeft,
                 right: options.gridRight,
                 top: options.gridTop,
                 bottom: options.gridBottom,
-                containLabel: true
             },
-            color:options.colorArray,
             dataZoom:{
                 type:'inside',
                 start:0,
@@ -635,32 +585,33 @@
             },
             xAxis: {
                 type: 'category',
-                axisTick: {
-                    show: false
-                },
                 axisLabel: {
                     show: true,
                     textStyle: {
                         color: '#b2b2b2',
-                        fontSize: options.fontSize,
+                        fontSize: options.XaxisLabelFontSize,
                         baseline: 'top',
-                        width:options.txtWidth
                     }
                 },
                 axisLine: {
+                    show:true,
                     lineStyle:{
                         color:'#81848b',
                         width:2
                     }
                 },
+                axisTick: {
+                    show: false
+                },
+                splitLine:{
+                    show:false
+                },
+                boundaryGap:options.boundaryGap,
                 data: xAxisData
             },
             yAxis: {
                 type: 'value',
                 max:options.max,
-                axisTick: {
-                    show: false
-                },
                 axisLine: {
                     show: options.showY,
                     lineStyle:{
@@ -677,6 +628,9 @@
                         baseline: 'top'
                     }
                 },
+                axisTick: {
+                    show: false
+                },
                 splitLine: {
                     show: options.splitLine,
                     lineStyle:{
@@ -685,10 +639,28 @@
                     }
                 },
             },
-            series: lineData
+            series: {
+                name:'',
+                type: 'line',
+                smooth: options.smooth,
+                showSymbol:options.showSymbol,
+                lineStyle:{
+                    normal:{
+                        width:options.lineWidth,
+                    }
+                },
+                areaStyle: {
+                    show:options.areaStyleShow,
+                    normal: {
+                        color:options.areaStyleColor
+                    }
+                },
+                markPoint:markPoint,
+                markLine:markLine,
+                symbolSize: 15,
+                data: seriesData,
+            }
         };
-
-
         var dom = null;
         if(typeof options.conId === 'string'){
             dom = document.getElementById(options.conId);
