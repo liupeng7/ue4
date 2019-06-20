@@ -506,9 +506,7 @@
                     {offset: 1, color: 'rgba(79,242,240,0.3)'}]),
             txtColor:'#fff',
             markLinecolor:'',
-
-
-            dataArray:[],//数据
+            dataArray:[],
         };
         options = $.extend(false,defaultOption,options);
         let seriesData = [];
