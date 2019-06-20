@@ -349,7 +349,7 @@ return !(right < rect2.left ||
 
 
 document.onreadystatechange = function () {
-	if (document.readyState == "interactive") {
+    if (document.readyState == "interactive") {
 		if (!isMobile && window.ue && window.ue.uecom){
 			document.onmousemove = function(event) {
 				if (!sendMousePositionToUE4 || event.srcElement.tagName !== "HTML")
@@ -370,7 +370,7 @@ document.onreadystatechange = function () {
 			};
 		}
 		else{
-			if (isMobile){
+			if (isMobile){						
 				document.ontouchmove = function(event) {
 					if (websocketConnected && sendMousePositionToUE4 && (event.srcElement.tagName == "HTML" || event.srcElement.tagName == "BODY")){
 						for (var i = 0; i < event.touches.length; i++) {
@@ -416,22 +416,9 @@ document.onreadystatechange = function () {
 				
 			}
 		}
-		document.onmousedown = function(){
-			document.onmousemove = function mouseMove(event){
-				let mouseX = event.movementX;
-				let mouseY = event.movementY;
-				console.log(mouseX,mouseY);
-				triggerUE4EventBlank('mouseMove',mouseX,mouseY)
-			};
-		};
-		document.onmouseup = function(){
-			document.onmousemove = function mouseStop(){
-				return false
-			};
-		};
-
+		
 		document.onclick = function(event) {
-
+			
 			if (event.srcElement && document.getElementsByClassName("hasGamepadControl").length > 0){
 				var classList = event.srcElement.classList;
 				for (var i = 0; i < classList.length; i++) {

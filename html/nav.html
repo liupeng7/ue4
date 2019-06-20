@@ -52,6 +52,7 @@
 </html>
 <script src="../plugin/jquery-3.1.1.min.js"></script>
 <script src="../common/com.js"></script>
+<script src="../plugin/HTMLMenuUE4Connector.js"></script>
 <script>
 
 
@@ -69,19 +70,18 @@
         $(this).addClass('ac');
         switch (index) {
             case 0:
-                window.ue.GM.webnavstreet();
+                triggerUE4EventBlank('webnavstreet');
                 break;
             case 1:
-                window.ue.GM.webnavcommunity();
+                triggerUE4EventBlank('webnavcommunity');
                 break;
             case 2:
-                window.ue.GM.webnavgarden();
+                triggerUE4EventBlank('webnavgarden');
                 break;
             case 3:
-                window.ue.GM.webnavmarket();
+                triggerUE4EventBlank('webnavmarket');
                 break;
             case 4:
-                // window.ue.GM.webbtmstreet();
                 break;
         }
 

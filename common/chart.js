@@ -9,7 +9,6 @@
             {offset: 1, color: '#ffb55e'}
         ]
     );
-    //git test
 
     let TiaoHoverColor = new echarts.graphic.LinearGradient(
         1, 0, 0, 0,
@@ -56,30 +55,28 @@
     BarColorArr.push(BarColor3);
 
 
-    //饼图
     function PieChart(options){
         var defaultOption={
-            conId:'', //内容id
+            conId:'',
             radius:'60%',
             roseType:'radius',
             center:['50%','50%'],
             name:'',
-            showLegend:false, //是否显示图例
-            legendArray:[], // 图例数据 name value (percent)
-            legendRight:15,  //图例位置
+            showLegend:false,
+            legendArray:[],
+            legendRight:15,
             itemWidth:10,
             itemHeight:10,
             fontSize:18,
             itemGap:20,
-            showLabel:false,  //显示标签
-            showLabelLine:false,  // 标签线
+            showLabel:false,
+            showLabelLine:false,
             showLabelPer:false,
             colorArray:['#EF7663', '#1AA7B3', '#F968A9', '#F968A9', '#804FCD', '#FFB55E', '#2247B2'],
-            dataArray:[], //数据
+            dataArray:[],
             fn:function(){}
         };
         options = $.extend(false,defaultOption,options);
-        //获取数据
         var legendName=[];
         var labelPercent = [];
         var legendValue = null;
@@ -176,155 +173,16 @@
             dom = $(options.conId)[0];
         }
 
-        var myChart = echarts.init(dom);// 图表初始化的地方，在页面中要有一个地方来显示图表
-        myChart.setOption(option); //显示图形
+        var myChart = echarts.init(dom);
+        myChart.setOption(option);
         myChart.on('click',options.fn)
     }
 
-    //条形图
-    function TiaoChart(options){
 
-        var defaultOption={
-            conId:'', //内容id
-            yArray:[],//y轴
-            labelPercent:[],
-            legendArray:[],
-            fontSize:18,
-            colorStyle:TiaoStyleColor,//变化的颜色
-            hoverStyle:TiaoHoverColor,
-            isShowText:true,
-            isImportPeo:false,
-            barWidth:18,
-            barCategoryGap:'20%',//柱状间距
-            dataArray:[]
-        };
 
-        options = $.extend(false,defaultOption,options);
-        var option={
-            xAxis: {
-                axisTick: {
-                    length: 0
-                },
-                axisLine: {
-                    show:false
-                },
-                splitLine: {
-                    show: false
-                },
-                axisLabel: {
-                    show: false
-                }
-            },
-            grid: {
-                left: '0',
-                right: '25%',
-                top:'5%',
-                bottom:'0',
-                containLabel: true
-            },
-            dataZoom:false,
-            tooltip:{
-                formatter:function(params){
-                    var index = params.dataIndex;
-                    var per = options.labelPercent[index];
-                    var label = '';
-                    if(options.isImportPeo){
-                        label = params.name + ":" + params.value + " " + "("+ per + "‰)"
-                    }else{
-                        label = params.name + ":" + params.value + " " + "("+ per + "%)"
-                    }
-                    return label
-                }
-            },
-            yAxis: {
-                axisTick: {
-                    show:false
-                },
-                axisLine: {
-                    show:false
-                },
-                splitLine: {
-                    show: false
-                },
-                axisLabel: {
-                    show: true,
-                    interval: 0,
-                    margin:18,
-                    textStyle: {
-                        color: "rgba(255,255,255,0.75)",
-                        fontSize: options.fontSize
-                    },
-                    formatter:function (val) {
-                        var ParamsName = "";// 最终拼接成的字符串
-                        var paramsNameNumber = val.length;// 实际标签的个数
-                        if (paramsNameNumber > 4) {
-                            ParamsName = val.substring(0, 4) + '...';
-                        } else {
-                            // 将旧标签的值赋给新标签
-                            ParamsName = val;
-                        }
-
-                        //将最终的字符串返回
-                        return ParamsName
-                    }
-                },
-                data: options.yArray
-            },
-            series: [
-                {
-                    type: 'bar',
-                    barWidth:options.barWidth,
-
-                    itemStyle:{
-                        normal:{
-                            label:{
-                                show:options.isShowText,
-                                position: 'right',
-                                textStyle:{
-                                    color:'rgba(255,255,255,0.75)',
-                                    fontSize:16
-                                },
-                                formatter:function(params){
-                                    var index = params.dataIndex;
-                                    var per = options.labelPercent[index];
-                                    var label = '';
-                                    if(options.isImportPeo){
-                                        label = params.value + " " + "("+ per + "‰)"
-                                    }else{
-                                        label = params.value + " " + "("+ per + "%)"
-                                    }
-                                    return label
-                                }
-                            },
-                            color: options.colorStyle,
-                            barBorderRadius:2,
-                        },
-                        emphasis:{
-                            color:options.hoverStyle
-                        }
-                    },
-
-                    barCategoryGap:options.barCategoryGap,
-                    data: options.dataArray
-                }
-            ]
-        };
-
-        var dom = null;
-        if(typeof options.conId === 'string'){
-            dom = document.getElementById(options.conId);
-        }else{
-            dom = $(options.conId)[0];
-        }
-
-        var myChart = echarts.init(dom);// 图表初始化的地方，在页面中要有一个地方来显示图表
-        myChart.setOption(option); //显示图形
-    }
-
-    //圆环
     function RingChart(options) {
         var defaultOption={
-            conId:'', //内容id
+            conId:'',
 
             showTooltip:true,
             showLegend:true,
@@ -335,7 +193,7 @@
             legendColor:'rgba(255,255,255,0.6)',
             legendArray:[],
 
-            colorArray:['#ffc569', '#74b860', '#b18af3', '#0d96ff'], //颜色
+            colorArray:['#ffc569', '#74b860', '#b18af3', '#0d96ff'],
             roseType:'area',
             radius:'60%',
             center:['50%','50%'],
@@ -348,8 +206,7 @@
             labelLineLength2:30,
 
 
-            dataArray:[] //数据
-
+            dataArray:[]
         };
         options = $.extend(false,defaultOption,options);
 
@@ -393,7 +250,6 @@
                     label: {
                         normal: {
                             show: options.labelShow,
-                            // position: 'center'
                             fontSize:options.labelFont,
                             color:'rgba(255,255,255,0.6)',
                             formatter:function (pp) {
@@ -445,24 +301,23 @@
         myChart.setOption(option);
     }
 
-    //柱状图
     function BarChart(options) {
         let defaultOption={
-            conId:'', //内容id
+            conId:'',
             zdyLable:{},
-            name:'', //横坐标名称
-            left:0, //左边距
+            name:'',
+            left:0,
             fontSize:18,
-            xArray:[], //X轴
-            colorArray:BarColorArr, //颜色
+            xArray:[],
+            colorArray:BarColorArr,
             isShowText:true,
             isshowhover_perc:false,
-            axisLine:true, //Y轴
+            axisLine:true,
             fontWeight:'',
-            barWidth:'45%', //宽度
-            unit:'',   //单位
-            stack:'',   //叠加效果
-            dataArray:[], //series数据
+            barWidth:'45%',
+            unit:'',
+            stack:'',
+            dataArray:[],
         };
 
         options = $.extend(false,defaultOption,options);
@@ -482,7 +337,6 @@
                     if(options.unit){
                         return params.name + ': ' + params.data + options.unit;
                     }
-                    //var unit = options.hover_unit ? options.hover_unit : '';
                     if(options.isshowhover_perc == true){
                         return '● ' + params.name + ': ' +  params.data + '%';
                     }else{
@@ -515,17 +369,14 @@
                         fontWeight:options.fontWeight,
                     },
                     formatter:function (val) {
-                        var ParamsName = "";// 最终拼接成的字符串
-                        var paramsNameNumber = val.length;// 实际标签的个数
+                        var ParamsName = "";
+                        var paramsNameNumber = val.length;
 
                         if (paramsNameNumber > 5) {
                             ParamsName = val.substring(0, 4) + '...';
                         } else {
-                            // 将旧标签的值赋给新标签
                             ParamsName = val;
                         }
-
-                        //将最终的字符串返回
                         return ParamsName
                     }
                 },
@@ -610,18 +461,17 @@
             dom = $(options.conId)[0];
         }
 
-        var myChart = echarts.init(dom);// 图表初始化的地方，在页面中要有一个地方来显示图表
-        myChart.setOption(option); //显示图形
+        var myChart = echarts.init(dom);
+        myChart.setOption(option);
 
     }
 
-    //折线图
     function LineChart(options) {
         var defaultOption={
-            conId:'', //内容id
-            title:'', //标题
+            conId:'',
+            title:'',
             fontSize:18,
-            legendSize:12,  //图例字大小
+            legendSize:12,
             itemWidth:10,
             itemHeight:10,
             isArea:false,
@@ -629,15 +479,15 @@
             showLegend:false,
             splitLine:true,
             axisLabel:true,
-            markLine:true, //是否显示平均值线
-            markLine_custom:{},//自定义标注线
-            markPoint:false, //是否显示最大最小值点
-            smooth:true, //是否是光滑曲线
-            lineWidth:2,  //折线宽度
-            lineColor:'',     //折线颜色
-            itemGap:10,  //图例块之间距离
-            max:null,  //y轴最大刻度
-            showSymbol:true, //拐点是否显示
+            markLine:true,
+            markLine_custom:{},
+            markPoint:false,
+            smooth:true,
+            lineWidth:2,
+            lineColor:'',
+            itemGap:10,
+            max:null,
+            showSymbol:true,
             legendBottom:0,
             txtColor:'#fff',
             markLinecolor:'',
@@ -646,8 +496,8 @@
             gridRight:'6%',
             gridTop:'10%',
             txtWidth:'100px',
-            colorArray:['#01dafe','#58e569','#f0a54a'],//颜色
-            dataArray:[],//数据
+            colorArray:['#01dafe','#58e569','#f0a54a'],
+            dataArray:[],
         };
         options = $.extend(false,defaultOption,options);
         var lineData=[];
@@ -790,7 +640,6 @@
                 },
                 axisLabel: {
                     show: true,
-                    // interval: 0,
                     textStyle: {
                         color: '#b2b2b2',
                         fontSize: options.fontSize,
@@ -847,263 +696,13 @@
             dom = $(options.conId)[0];
         }
 
-        var myChart = echarts.init(dom);// 图表初始化的地方，在页面中要有一个地方来显示图表
+        var myChart = echarts.init(dom);
         myChart.clear();
-        myChart.setOption(option); //显示图形
+        myChart.setOption(option);
     }
 
-    //气泡图
-    function ScatterChart(options){
-        var defaultOption={
-            conId:'', //内容id
-            fontSize:options.fontSize,
-            top:'40%',
-            xData:[],
-            colorArray:['#01dafe','#58e569','#f0a54a'],//颜色
-            dataArray:[]//数据
-        };
-        options = $.extend(false,defaultOption,options);
-        var option = {
-            tooltip: {
-                position: 'top'
-            },
-            itemStyle:{
-                normal:{
-                    color:'#f0a54a'
-
-                }
-
-            },
-            singleAxis: [{
-                left: 50,
-                right:50,
-                type: 'category',
-                boundaryGap: false,
-                data: options.xData,
-                top: options.top,
-                height: 0,
-                axisTick:{
-                    show:false
-                },
-                axisLabel: {
-                    interval:0,
-                    color:'#fff',
-                    fontSize:options.fontSize,
-                    margin:50
-                },
-                axisLine:{
-                    lineStyle:{
-                        color:'#748f97'
-                    }
-                }
-            }],
-            series: [{
-
-                coordinateSystem: 'singleAxis',
-                type: 'scatter',
-                label:{
-                    show:true,
-                    position:'inside',
-                    color:'#fff'
-                },
-                data: options.dataArray,
-
-                symbolSize: function (dataItem) {
-                    var max = Math.max.apply(null, options.dataArray);
-                    var num = 0;
-                    var r = 0;
-                    if(dataItem == 0){
-                        r = 0;
-                    }else{
-                        if(max != 0){
-                            num = max/80;
-                        }
-                        if(num !=0){
-                            r = dataItem/num;
-                        }
-                    }
-
-                    return r;
-                }
-            }]
-        };
-
-        var dom = null;
-        if(typeof options.conId === 'string'){
-            dom = document.getElementById(options.conId);
-        }else{
-            dom = $(options.conId)[0];
-        }
-
-        var myChart = echarts.init(dom);// 图表初始化的地方，在页面中要有一个地方来显示图表
-        myChart.setOption(option); //显示图形
-    }
-
-    //漏斗图
-    function FunnelChart(options){
-        var defaultOption={
-            conId:'', //内容id
-            dataArray:[]//数据
-        };
-        options = $.extend(false,defaultOption,options);
-        var option = {
-            tooltip: {
-                trigger: 'item',
-                formatter: "{a} <br/>{b} : {c}"
-            },
-            calculable: true,
-            series: [{
-                color: ['#ffcc7d'],
-                name: '',
-                gap:6,
-                type: 'funnel',
-                width: '44%',
-                height: '70%',
-                x: '5%',
-
-                minSize: '50%',
-                maxSize:'98%',
-                funnelAlign: 'right',
-
-                center: ['50%', '50%'], // for pie
-
-                data: options.dataArray[0],
-                roseType: true,
-                label: {
-                    normal: {
-
-                        position: 'inside',
-                        color:'rgba(2,2,2,0.75)',
-                        fontSize:18,
-                        fontWeight:'bold',
-                        formatter: function(params) {
-                            return params.name + ':' + params.value
-                        },
-                    }
-                },
-                itemStyle: {
-                    normal: {
-                        borderWidth: 0,
-                        shadowBlur: 20,
-                        shadowOffsetX: 0,
-                        shadowOffsetY: 5,
-                        shadowColor: 'rgba(0, 0, 0, 0.3)'
-                    }
-                }
-            },
-
-                {
-                    color: ['#2cb5fd'],
-                    name: '',
-                    type: 'funnel',
-                    gap:6,
-                    width: '44%',
-                    height: '70%',
-
-                    x: '50%',
-
-                    minSize: '50%',
-                    maxSize:'98%',
-                    funnelAlign: 'left',
-
-                    center: ['50%', '50%'], // for pie
-
-                    data: options.dataArray[1],
-                    roseType: true,
-                    label: {
-                        normal: {
-                            position: 'inside',
-                            color:'rgba(2,2,2,0.75)',
-                            fontSize:18,
-                            fontWeight:'bold',
-                            formatter: function(params) {
-                                return params.name + ':' + params.value
-                            },
-                        }
-                    },
-                    itemStyle: {
-                        normal: {
-                            borderWidth: 0,
-                            shadowBlur: 20,
-                            shadowOffsetX: 0,
-                            shadowOffsetY: 5,
-                            shadowColor: 'rgba(0, 2, 0, 0.3)'
-                        }
-                    }
-                },
-
-            ]
-        };
-
-        var dom = null;
-        if(typeof options.conId === 'string'){
-            dom = document.getElementById(options.conId);
-        }else{
-            dom = $(options.conId)[0];
-        }
-
-        var myChart = echarts.init(dom);// 图表初始化的地方，在页面中要有一个地方来显示图表
-        myChart.setOption(option); //显示图形
-    }
-
-    //嵌套圆环
-    function NestRingChart(dom,data,secondData){
-        var option = {
-            tooltip: {
-                trigger: 'item',
-                formatter: "{a} <br/>{b}: {c} ({d}%)"
-            },
-
-            series: [
-                {
-                    name:'一级来源',
-                    color: ['#00a0e9','#ffb55d','#00dbfe','#56e168'],
-                    type:'pie',
-                    center:['60%','50%'],
-                    selectedMode: 'single',
-                    radius: [0, '30%'],
-
-                    label: {
-
-                        normal: {
-                            show:false,
-                            position: 'inner'
-                        },
-                        emphasis:{
-                            show:true,
-                            position: 'inner'
-                        },
-                    },
-                    labelLine: {
-                        normal: {
-                            show: false
-                        }
-                    },
-                    data:data.list,
-                },
-                {
-                    name:'二级来源',
-                    color: ['#00a0e9','#00dbfe','#56e168','#ffb55d'],
-                    type:'pie',
-                    center:['60%','50%'],
-                    radius: ['40%', '55%'],
-                    label: {
-                        normal: {
-                            fontSize:18,
-                        }
-                    },
-
-                    data:secondData,
-                }
-            ]
-        };
 
 
-        var myChart = echarts.init(dom);// 图表初始化的地方，在页面中要有一个地方来显示图表
-        myChart.setOption(option); //显示图形
-    }
-
-    //雷达图
     function RadarChart(options){
         let defaultOption =  {
             conId:'',
@@ -1118,9 +717,9 @@
             },
             tooltip: {},
 
-            radar: [{                       // 雷达图坐标系组件，只适用于雷达图。
-                center: ['55%', '50%'],             // 圆中心坐标，数组的第一项是横坐标，第二项是纵坐标。[ default: ['50%', '50%'] ]
-                radius: 180,                        // 圆的半径，数组的第一项是内半径，第二项是外半径。
+            radar: [{
+                center: ['55%', '50%'],
+                radius: 180,
                 name: {
                     show:true,
                     textStyle: {
@@ -1128,27 +727,27 @@
                         color: 'rgba(255,255,255,0)'
                     }
                 },
-                splitNumber:4,                     // (这里是圆的环数)指示器轴的分割段数。[ default: 5 ]
-                shape: 'polygon',                    // 雷达图绘制类型，支持 'polygon'(多边形) 和 'circle'(圆)。[ default: 'polygon' ]
-                axisLine: {                         // (圆内的几条直线)坐标轴轴线相关设置
+                splitNumber:4,
+                shape: 'polygon',
+                axisLine: {
                     lineStyle: {
-                        color: 'rgba(255,255,255,0.7)',          // 坐标轴线线的颜色。
-                        width: 2,                      	 // 坐标轴线线宽。
-                        type: 'solid',                   // 坐标轴线线的类型。
+                        color: 'rgba(255,255,255,0.7)',
+                        width: 2,
+                        type: 'solid',
                         opacity: 0.8
                     }
                 },
-                splitLine: {                        // (这里是指所有圆环)坐标轴在 grid 区域中的分隔线。
+                splitLine: {
                     lineStyle: {
-                        color: '#98cde0',            // 分隔线颜色
-                        width: 2, 						// 分隔线线宽
+                        color: '#98cde0',
+                        width: 2,
                         opacity: 0.5
                     }
                 },
-                splitArea: {                        // 坐标轴在 grid 区域中的分隔区域，默认不显示。
+                splitArea: {
                     show: true,
-                    areaStyle: {                            // 分隔区域的样式设置。
-                        color: ['rgba(0,150,255,0.8)','rgba(1,19,33,0.8)'],       // 分隔区域颜色。分隔区域会按数组中颜色的顺序依次循环设置颜色。默认是一个深浅的间隔色。
+                    areaStyle: {
+                        color: ['rgba(0,150,255,0.8)','rgba(1,19,33,0.8)'],
                     }
                 },
                 indicator: [
@@ -1164,9 +763,9 @@
                 type: 'radar',
                 symbol:'circle',
                 symbolSize:20,
-                areaStyle: {                // 单项区域填充样式
+                areaStyle: {
                     normal: {
-                        color: 'rgba(0,102,24,0.9)'       // 填充的颜色。[ default: "#000" ]
+                        color: 'rgba(0,102,24,0.9)'
                     }
                 },
                 itemStyle:{
@@ -1177,7 +776,7 @@
                     }
 
                 },
-                lineStyle: {                // 单项线条样式。
+                lineStyle: {
                     normal: {
                         width:6,
                         color: 'rgba(50,255,151,0.9)',
@@ -1199,12 +798,11 @@
             dom = $(options.conId)[0];
         }
 
-        let myChart = echarts.init(dom);// 图表初始化的地方，在页面中要有一个地方来显示图表
+        let myChart = echarts.init(dom);
         myChart.clear();
-        myChart.setOption(option); //显示图形
+        myChart.setOption(option);
     }
 
-    //折柱混合
     function BarLineChart(options){
         let defaultOption =  {
             conId:'',
@@ -1338,23 +936,22 @@
             dom = $(options.conId)[0];
         }
 
-        let myChart = echarts.init(dom);// 图表初始化的地方，在页面中要有一个地方来显示图表
+        let myChart = echarts.init(dom);
         myChart.off('click');
         myChart.clear();
 
-        myChart.setOption(option); //显示图形
+        myChart.setOption(option);
 
         myChart.on('click',options.fn)
     }
 
-    //双柱图
     function TwoBarChart(options){
         let defaultOption={
-            conId:'', //内容id
-            xArray:[], //X轴
-            colorArray:[], //颜色
-            barWidth:'45%', //宽度
-            dataArray:[], //series数据
+            conId:'',
+            xArray:[],
+            colorArray:[],
+            barWidth:'45%',
+            dataArray:[],
         };
 
         options = $.extend(false,defaultOption,options);
@@ -1421,8 +1018,8 @@
         let option = {
             tooltip : {
                 trigger: 'axis',
-                axisPointer : {            // 坐标轴指示器，坐标轴触发有效
-                    type : 'shadow'        // 默认为直线，可选为：'line' | 'shadow'
+                axisPointer : {
+                    type : 'shadow'
                 }
             },
             grid: {
@@ -1465,179 +1062,24 @@
             dom = $(options.conId)[0];
         }
 
-        var myChart = echarts.init(dom);// 图表初始化的地方，在页面中要有一个地方来显示图表
+        var myChart = echarts.init(dom);
         myChart.clear();
-        myChart.setOption(option); //显示图形
+        myChart.setOption(option);
     }
 
-    //正负柱状图
-    function PlusMinusChart(options){
-        let defaultOption={
-            conId:'', //内容id
-            hasLast:'',
-            xArray:[], //X轴
-            colorArray:[], //颜色
-            barWidth:'10%', //宽度
-            dataArray:[], //series数据
-        };
 
-        options = $.extend(false,defaultOption,options);
-
-
-        let barData = [];
-
-        let BarColor1 = new echarts.graphic.LinearGradient(
-            0, 0, 0, 1,
-            [
-
-                {offset: 0, color: '#fff6e1'},
-                {offset: 1, color: '#ffc36a'}
-            ]
-        );
-        let BarColor2 = new echarts.graphic.LinearGradient(
-            0, 0, 0, 1,
-            [
-
-                {offset: 0, color: '#f56e5b'},
-                {offset: 1, color: '#dff6fd'}
-            ]
-        );
-
-        let name = ['满意','不满意','满意','不满意'];
-
-        options.colorArray.push(BarColor1);
-        options.colorArray.push(BarColor2);
-
-        $.each(options.dataArray,function(i,n){
-
-
-            if(options.hasLast){
-                options.colorArray = [];
-                options.colorArray.push(BarColor1);
-                options.colorArray.push(BarColor1);
-                options.colorArray.push(BarColor2);
-                options.colorArray.push(BarColor2);
-
-                var stack = 'one';
-                if(i%2){
-                    stack = 'two';
-                }
-
-                barData.push({
-                    name:name[i],
-                    type:'bar',
-                    data:n,
-                    stack:stack,
-                    itemStyle:{
-                        normal:{
-                            color:function(params){
-                                return options.colorArray[i]
-                            }
-                        }
-
-                    }
-                })
-            }else{
-                barData.push({
-                    name:name[i],
-                    type:'bar',
-                    data:n,
-                    stack:'one',
-                    itemStyle:{
-                        normal:{
-                            color:function(params){
-                                return options.colorArray[i]
-                            }
-                        }
-
-                    }
-                })
-            }
-
-
-        });
-
-
-        let option = {
-            tooltip : {
-                trigger: 'axis',
-                axisPointer : {            // 坐标轴指示器，坐标轴触发有效
-                    type : 'shadow'        // 默认为直线，可选为：'line' | 'shadow'
-                },
-                formatter:function(params){
-                    let tpl = '';
-                    $.each(params,function(i,n){
-                        if(n.value < 0 ){
-                            n.value = - n.value
-                        }
-                        tpl += n.seriesName + ':' + n.value+'<br>'
-                    });
-
-
-                    return tpl
-                }
-            },
-            grid: {
-                left: '3%',
-                right: '4%',
-                bottom: '3%',
-                containLabel: true
-            },
-            xAxis : [
-                {
-                    type: 'category',
-                    data: options.xArray,
-                    axisLabel: {
-                        show: true,
-                        interval: 0,
-                        margin: 18,
-                        textStyle: {
-                            color: "#fff",
-                            fontSize: 24,
-                        },
-                    }
-                }
-            ],
-            yAxis : [
-                {
-                    type : 'value',
-                    axisLabel:{show:false},
-                    axisLine:{show:false},
-                    axisTick:{show:false},
-                    splitLine:{show:false}
-                }
-            ],
-            series : barData
-        };
-
-        var dom = null;
-        if(typeof options.conId === 'string'){
-            dom = document.getElementById(options.conId);
-        }else{
-            dom = $(options.conId)[0];
-        }
-
-        var myChart = echarts.init(dom);// 图表初始化的地方，在页面中要有一个地方来显示图表
-        myChart.clear();
-        myChart.setOption(option); //显示图形
-    }
 
 
 
 
     window.Xchart = {
         PieChart:PieChart,
-        TiaoChart:TiaoChart,
         RingChart:RingChart,
         BarChart:BarChart,
         LineChart:LineChart,
-        ScatterChart:ScatterChart,
-        FunnelChart:FunnelChart,
-        NestRingChart:NestRingChart,
         RadarChart:RadarChart,
         BarLineChart:BarLineChart,
         TwoBarChart:TwoBarChart,
-        PlusMinusChart:PlusMinusChart
     }
 })();
 

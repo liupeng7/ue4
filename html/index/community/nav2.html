@@ -56,12 +56,13 @@
 
 <script src="../../../plugin/jquery-3.1.1.min.js"></script>
 <script src="../../../common/com.js"></script>
+<script src="../../../plugin/HTMLMenuUE4Connector.js"></script>
 <script>
 
     narrow();
 
     $('.nav_back').click(function () {
-        window.ue.GM.webnav2back();
+        triggerUE4EventBlank('webnav2back');
     });
     $('.nav_item').click(function () {
 
@@ -70,7 +71,7 @@
         let index = $(this).index();
         switch (index) {
             case 2:
-                window.ue.GM.webnav2dangj();
+                triggerUE4EventBlank('webnav2dangj');
                 break
         }
     })
