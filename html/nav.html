@@ -5,8 +5,7 @@
     <title>主题页-导航</title>
     <link rel="stylesheet" href="../common/com.css">
     <style>
-        html{width: 5760px;height: 240px;overflow: hidden;
-            background:-webkit-linear-gradient(bottom,rgba(0,0,0,0.75),rgba(0,0,0,0.5),rgba(0,0,0,0)) no-repeat}
+        html{width: 5760px;height: 240px;background:-webkit-linear-gradient(bottom,rgba(0,0,0,0.75),rgba(0,0,0,0.5),rgba(0,0,0,0)) no-repeat}
 
         .index{display: flex;align-items: center;justify-content: center;height:240px;}
         .nav{display: flex;align-items: center;justify-content:center;}
@@ -19,7 +18,8 @@
         .nav_item_border{width: 400px;border-top:6px solid rgba(94,153,255,1);margin-top: 7px; }
 
         .nav_back{margin-right: 40px;}
-        .topic{font-weight:bold;font-size:34px;color:rgba(255,255,255,1);margin-left: 36px;width: 240px;height: 240px;display: flex;align-items: center;justify-content: center}
+
+        .index2{display: none;justify-content: center;height: 240px;align-items: center}
     </style>
 </head>
 <body>
@@ -48,6 +48,35 @@
             </div>
         </div>
     </div>
+    <div class="index2">
+        <img class="nav_back" src="../image/common/icon_back.png">
+        <div class="nav">
+            <div class="nav_item">
+                <div class="nav_item_name"><img src="../image/common/icon_bottom_1.png">政务服务主题</div>
+                <div class="nav_item_border"></div>
+            </div>
+            <div class="nav_item">
+                <div class="nav_item_name"><img src="../image/common/icon_bottom_1.png">党建主题</div>
+                <div class="nav_item_border"></div>
+            </div>
+            <div class="nav_item">
+                <div class="nav_item_name"><img src="../image/common/icon_bottom_1.png">公共安全主题</div>
+                <div class="nav_item_border"></div>
+            </div>
+            <div class="nav_item">
+                <div class="nav_item_name"><img src="../image/common/icon_bottom_1.png">网格化主题</div>
+                <div class="nav_item_border"></div>
+            </div>
+            <div class="nav_item">
+                <div class="nav_item_name"><img src="../image/common/icon_bottom_1.png">综治维稳主题</div>
+                <div class="nav_item_border"></div>
+            </div>
+            <div class="nav_item">
+                <div class="nav_item_name"><img src="../image/common/icon_bottom_1.png">民生服务主题</div>
+                <div class="nav_item_border"></div>
+            </div>
+        </div>
+    </div>
 </body>
 </html>
 <script src="../plugin/jquery-3.1.1.min.js"></script>
@@ -58,21 +87,22 @@
 
     window.onload = function () {
         setTimeout(function () {
-            // $('html').show();
             narrow();
         },200)
 
     };
 
-    $('.nav_item').click(function () {
+    $('.index').find('.nav_item').click(function () {
         let index  = $(this).index();
-        $('.nav_item').removeClass('ac');
+        $('.index').find('.nav_item').removeClass('ac');
         $(this).addClass('ac');
         switch (index) {
             case 0:
                 triggerUE4EventBlank('webnavstreet');
                 break;
             case 1:
+                $('.index').hide();
+                $('.index2').css('display','flex');
                 triggerUE4EventBlank('webnavcommunity');
                 break;
             case 2:
@@ -84,10 +114,25 @@
             case 4:
                 break;
         }
-
     });
-    $('.nav_back').click(function () {
-        window.ue.GM.webnavback();
+    $('.index').find('.nav_back').click(function () {
+        triggerUE4EventBlank('webnavback');
+    });
+    $('.index2').find('.nav_item').click(function () {
+        $('.index2').find('.nav_item').removeClass('ac');
+        $(this).addClass('ac');
+        let index = $(this).index();
+        switch (index) {
+            case 1:
+                triggerUE4EventBlank('webnav2dangj');
+                break;
+        }
+    });
+
+    $('.index2').find('.nav_back').click(function () {
+        $('.index2').hide();
+        $('.index').css('display','flex');
+        triggerUE4EventBlank('webnav2back');
     })
 </script>
 
